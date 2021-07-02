@@ -9,11 +9,11 @@ class Solution {
             if(map.containsKey(complement)) {
                 positions[0] = map.get(complement);
                 positions[1] = i;
+                break;
             } else {
                 map.put(nums[i], i);
             }
         }
-        System.gc();
         return positions;
     }
 }
