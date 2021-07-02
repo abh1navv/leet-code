@@ -15,7 +15,7 @@ class Solution {
                 }
                 int currsum = nums[start] + nums[end];
                 if(currsum == rem) {
-                    result.add(Arrays.asList(nums[i],nums[start],nums[end]));
+                    result.add(List.of(nums[i],nums[start],nums[end]));
                     start++;
                 } else if (currsum < rem) {
                     start++;
