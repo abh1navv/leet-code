@@ -13,6 +13,7 @@ class Solution {
                 map.put(nums[i], i);
             }
         }
+        System.gc();
         return positions;
     }
 }
