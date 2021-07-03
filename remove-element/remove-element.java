@@ -3,8 +3,7 @@ class Solution {
         int len = nums.length;
         for(int i=0; i<len;i++) {
             if(nums[i] == val) {
-                nums[i] = nums[--len];
-                i--;
+                nums[i--] = nums[--len];
             }
         }
         return len;
