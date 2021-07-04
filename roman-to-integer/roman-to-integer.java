@@ -14,10 +14,10 @@ class Solution {
         for(i=0;i<len-1;i++) {
             char ch = s.charAt(i);
             char ch2 = s.charAt(i+1);
-            if(romToInt.get(ch) >= romToInt.get(ch2)) {
-                num+=romToInt.get(ch);
-            } else {
+            if(romToInt.get(ch) < romToInt.get(ch2)) {
                 num-=romToInt.get(ch);
+            } else {
+                num+=romToInt.get(ch);
             }                
         }
         num+=romToInt.get(s.charAt(i));
