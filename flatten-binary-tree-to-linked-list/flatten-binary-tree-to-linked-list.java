@@ -26,8 +26,8 @@ class Solution {
 
             if(root.left !=null) {
                 rootLeft.right = root.right;
-            }
-            root.right = null != root.left? root.left : root.right;
+                root.right = root.left;
+            } 
             root.left = null;
 
         }
