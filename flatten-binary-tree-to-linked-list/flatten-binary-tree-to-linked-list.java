@@ -19,8 +19,7 @@ class Solution {
     }
     
     public TreeNode flattenRoot(TreeNode root) {
-        if(root==null) 
-            return null;
+        
         if(root != null) {
             TreeNode rootLeft = flattenRoot(root.left);
             flattenRoot(root.right);
@@ -33,10 +32,7 @@ class Solution {
 
         }
         
-        while(root !=null) {
-            if(root.right == null) {
-                return root;
-            }
+        while(root !=null && root.right != null) {
             root = root.right;
         }
         return root;
