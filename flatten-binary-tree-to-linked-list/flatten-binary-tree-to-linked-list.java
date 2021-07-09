@@ -15,31 +15,31 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        LinkedList<TreeNode> stack=new LinkedList<>();
-        int top=0;
-        
-        flattenRoot(stack,root);
-        
-        Iterator<TreeNode> iterator = stack.iterator();
-        if(iterator.hasNext()) {
-            iterator.next();
-        }
-        while(iterator.hasNext()) {
-            root.right = iterator.next();
-            root.left = null;
-            root=root.right;
-        }
+        flattenRoot(root);
     }
     
-    public void flattenRoot(LinkedList<TreeNode> stack, TreeNode root) {
+    public TreeNode flattenRoot(TreeNode root) {
         if(root==null) 
-            return;
+            return null;
         if(root != null) {
-            stack.add(root);
+            TreeNode rootLeft = flattenRoot(root.left);
+            flattenRoot(root.right);
+
+            if(root.left !=null) {
+                rootLeft.right = root.right;
+            }
+            root.right = null != root.left? root.left : root.right;
+            root.left = null;
+
         }
-        if(root.left != null)
-            flattenRoot(stack,root.left);
-        if(root.right!=null)
-            flattenRoot(stack,root.right);
+        
+        while(root !=null) {
+            if(root.right == null) {
+                return root;
+            }
+            root = root.right;
+        }
+        return root;
+        
     }
 }
