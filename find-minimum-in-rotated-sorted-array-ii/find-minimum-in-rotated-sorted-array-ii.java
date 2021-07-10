@@ -8,9 +8,10 @@ class Solution {
         while(start<=end && nums[start] == nums[end]) {
             end--;
         }
+        int m=0;
         start = 1;
         while(start<=end) {
-            int m = (start+end)/2;
+            m = (start+end)/2;
             if(nums[m]<=first && nums[m-1]>nums[m]) return nums[m];
             else if(nums[m]>=first && !(nums[m-1]>nums[m])) start=m+1;
             else end = m-1;
