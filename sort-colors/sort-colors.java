@@ -15,7 +15,6 @@ class Solution {
                 nums[i] = temp;
                 i--;
             }
-            System.out.println(Arrays.toString(nums));
         }
     }
 }
