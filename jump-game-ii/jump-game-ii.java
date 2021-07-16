@@ -10,8 +10,7 @@ class Solution {
             }
             int max = nums[i+1] + i+1;
             int maxIn = i+1;
-            for(int j=1;j<=curr;j++) {
-
+            for(int j=2;j<=curr;j++) {
                 int index = i+j;
                 int dist = nums[index] + index;
                 if(index>len || dist >= len) {
