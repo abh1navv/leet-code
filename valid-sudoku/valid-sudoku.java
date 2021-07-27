@@ -16,25 +16,11 @@ class Solution {
                 if(value=='.') {
                     continue;
                 }
-                
-                if(row.get(i).contains(value)) {
-                
-                    return false;
-                }
-                else row.get(i).add(value);
-                
-                if(col.get(j).contains(value)) {
-                   
-                    return false;
-                }
-                else col.get(j).add(value);
-                
                 int blockNumber = i/3 * 3 + j/3;
-                if(block.get(blockNumber).contains(value)) {
-                   
+                if(!row.get(i).add(value) || !col.get(j).add(value) || !block.get(blockNumber).add(value) ) {
                     return false;
                 }
-                else block.get(blockNumber).add(value);
+                
             }
         }
         
