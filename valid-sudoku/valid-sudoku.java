@@ -29,7 +29,7 @@ class Solution {
                 }
                 else col.get(j).add(value);
                 
-                int blockNumber = getBlockNumber(i,j);
+                int blockNumber = i/3 * 3 + j/3;
                 if(block.get(blockNumber).contains(value)) {
                    
                     return false;
@@ -41,7 +41,4 @@ class Solution {
         return true;
     }
     
-    public static int getBlockNumber(int i, int j) {
-        return i/3 * 3 + j/3;
-    }
 }
