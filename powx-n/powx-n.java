@@ -1,10 +1,10 @@
 class Solution {
     public double myPow(double x, int n) {
-        double ans = 1.0;
+        double ans;
         if(n>0) {
            ans = multiply(x,n);
-        } else if(n<0) {
-           ans /= multiply(x,Math.abs(n));
+        } else {
+           ans = 1/multiply(x,Math.abs(n));
         }
         return ans;
     }
