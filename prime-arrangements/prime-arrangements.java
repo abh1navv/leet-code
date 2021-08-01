@@ -5,15 +5,12 @@ class Solution {
         long perms = 1;
         for(int i=3;i<=n;i++) {
             if(isPrime(i)) {
-                count++;
-                perms=(perms*count)%(1000000007);
+                perms=(perms*++count)%(1000000007);
             } else {
-                negCount++;
-                perms=(perms*negCount)%(1000000007);
+                perms=(perms*++negCount)%(1000000007);
             }
         }
-        
-        return (int)(perms%1000000007);
+        return (int)perms;
         
     }
     
