@@ -1,10 +1,13 @@
 class Solution {
     public int numPrimeArrangements(int n) {
         int count = n>=2?1:0;
-        int negCount = 1;
+        int negCount = 1, j=0;
         long perms = 1;
         for(int i=3;i<=n;i++) {
-            if(isPrime(i)) {
+            for(j=2;j<i/2+1;j++) {
+                if(i%j==0) break;
+            }
+            if(j==i/2+1) {
                 perms=(perms*++count)%(1000000007);
             } else {
                 perms=(perms*++negCount)%(1000000007);
@@ -12,13 +15,5 @@ class Solution {
         }
         return (int)perms;
         
-    }
-    
-    public boolean isPrime(int n) {
-        
-        for(int i=2;i<=Math.sqrt(n);i++) {
-            if(n%i==0) return false;
-        }
-        return true;
     }
 }
