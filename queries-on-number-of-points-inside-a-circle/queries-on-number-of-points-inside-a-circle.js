@@ -5,7 +5,7 @@
  * @return {number[]}
  */
 const countPoints = function(points, queries) {
-    let result = []
+    const result = []
 
     queries.forEach(query => {
         const xCord = query[0]
