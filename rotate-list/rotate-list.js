@@ -11,23 +11,29 @@
  * @return {ListNode}
  */
 const rotateRight = function(head, k) {
-    
+        
     const first = head
-    const len = findLength(head)
+    let curr = head
+    
+    let len = 0
+    while(curr != null) {
+        len++
+        curr = curr.next
+    }
+    
     let rotationPoint = len - k%len
     
     if(head == null || rotationPoint == len) return head
     
-    let headNext = head.next
-    
     while(head.next != null && rotationPoint != 1) {
         rotationPoint--
         head = head.next
-        headNext = head.next
     }
     
-    const finalHead = headNext
+    let headNext = head.next
     head.next = null
+        
+    const finalHead = headNext
     
     while(headNext.next != null) {
         headNext = headNext.next
@@ -35,13 +41,4 @@ const rotateRight = function(head, k) {
     headNext.next = first
     
     return finalHead
-}
-
-const findLength = function(head) {
-    let n = 0
-    while(head != null) {
-        n++
-        head = head.next
-    }
-    return n
 }
