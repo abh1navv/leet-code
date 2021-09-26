@@ -18,7 +18,7 @@ const rotateRight = function(head, k) {
     let len = 1
     let first = head
     
-    while(head.next != null) {
+    while(head.next !== null) {
         len++
         head = head.next
     }
