@@ -11,30 +11,36 @@
  * @return {ListNode}
  */
 const rotateRight = function(head, k) {
-        
-    
     const first = head
-    let finalHead
+    let finalHead = head
     
+    //find length
     let len = findLength(head)
+    
     k = k % len
     
-    if(head == null || k == 0) {
+    //empty list or no rotation required
+    if(head == null || head.next == null || k == 0) {
         return head
     }
     
+    /*  
+        linking remains the same for elements to the right and to the left of (len-k)th element
+        break the link between the (len-k)th element and the previous element 
+        (len-k)th element is the final head after rotation
+    */
     while(head.next != null) {
-        if(len - k != 1) {
+        if(len - k != 1) { 
             head = head.next
-        } else {
+        } else { 
             let headNext = head.next
             head.next = null
-            finalHead = headNext
+            finalHead = headNext 
             head = headNext
         }  
         len--
     }
-    head.next = first
+    head.next = first //put the first len-k-1 elements at the end
     
     return finalHead
 }
