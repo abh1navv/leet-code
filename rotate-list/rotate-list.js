@@ -11,6 +11,9 @@
  * @return {ListNode}
  */
 const rotateRight = function(head, k) {
+    
+    return alternateSolution(head,k)
+    
     const first = head
     let finalHead = head
     
@@ -52,4 +55,31 @@ const findLength = function(head) {
         n++
     }
     return n
+}
+
+
+const alternateSolution = function(head, k) {
+    
+    if(head === null)
+        return head
+    
+    let len = 1
+    let first = head
+    
+    while(head.next != null) {
+        len++
+        head = head.next
+    }
+    head.next = first
+    
+    let breakPoint = len - k%len
+    while(breakPoint > 0) {
+        head = head.next
+        breakPoint--
+    }
+    
+    first = head.next
+    head.next = null
+    
+    return first
 }
