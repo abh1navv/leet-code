@@ -12,57 +12,9 @@
  */
 const rotateRight = function(head, k) {
     
-    return alternateSolution(head,k)
-    
-    const first = head
-    let finalHead = head
-    
-    //find length
-    let len = findLength(head)
-    
-    k = k % len
-    
-    //empty list or no rotation required
-    if(head === null || head.next === null || k === 0) {
+    if(head === null) {
         return head
     }
-    
-    /*  
-        linking remains the same for elements to the right and to the left of (len-k)th element
-        break the link between the (len-k)th element and the previous element 
-        (len-k)th element is the final head after rotation
-    */
-    while(head.next !== null) {
-        if(len - k !== 1) { 
-            head = head.next
-        } else { 
-            let headNext = head.next
-            head.next = null
-            finalHead = headNext 
-            head = headNext
-        }  
-        len--
-    }
-    head.next = first //put the first len-k-1 elements at the end
-    
-    return finalHead
-}
-
-const findLength = function(head) {
-    let n = 0
-    while(head !== null) {
-        head = head.next
-        n++
-    }
-    return n
-}
-
-
-const alternateSolution = function(head, k) {
-    
-    if(head === null)
-        return head
-    
     let len = 1
     let first = head
     
@@ -70,15 +22,20 @@ const alternateSolution = function(head, k) {
         len++
         head = head.next
     }
+    
+    //make a circle
     head.next = first
     
-    let breakPoint = len - k%len
-    while(breakPoint > 0) {
+    len -= k%len
+    while(len > 0) {
         head = head.next
-        breakPoint--
+        len--
     }
     
+    // save the new head
     first = head.next
+    
+    //break the circle
     head.next = null
     
     return first
