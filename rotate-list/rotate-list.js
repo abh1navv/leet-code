@@ -12,33 +12,38 @@
  */
 const rotateRight = function(head, k) {
         
+    
     const first = head
-    let curr = head
+    let finalHead
     
-    let len = 0
-    while(curr != null) {
-        len++
-        curr = curr.next
+    let len = findLength(head)
+    k = k % len
+    
+    if(head == null || k == 0) {
+        return head
     }
     
-    let rotationPoint = len - k%len
-    
-    if(head == null || rotationPoint == len) return head
-    
-    while(head.next != null && rotationPoint != 1) {
-        rotationPoint--
-        head = head.next
+    while(head.next != null) {
+        if(len - k != 1) {
+            head = head.next
+        } else {
+            let headNext = head.next
+            head.next = null
+            finalHead = headNext
+            head = headNext
+        }  
+        len--
     }
-    
-    let headNext = head.next
-    head.next = null
-        
-    const finalHead = headNext
-    
-    while(headNext.next != null) {
-        headNext = headNext.next
-    }
-    headNext.next = first
+    head.next = first
     
     return finalHead
+}
+
+const findLength = function(head) {
+    let n = 0
+    while(head != null) {
+        head = head.next
+        n++
+    }
+    return n
 }
