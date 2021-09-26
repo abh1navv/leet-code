@@ -20,7 +20,7 @@ const rotateRight = function(head, k) {
     
     let headNext = head.next
     
-    while(head != null && rotationPoint != 1) {
+    while(head.next != null && rotationPoint != 1) {
         rotationPoint--
         head = head.next
         headNext = head.next
