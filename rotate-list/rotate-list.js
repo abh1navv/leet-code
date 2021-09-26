@@ -11,19 +11,12 @@
  * @return {ListNode}
  */
 const rotateRight = function(head, k) {
-    //find length
-    //traverse and stop
-    //unlink and link back
-    if(head == null || k == 0 || head.next == null) {
-        return head
-    }
     
     const first = head
     const len = findLength(head)
     let rotationPoint = len - k%len
     
-    if(rotationPoint == len) return head
-    console.log(rotationPoint)
+    if(head == null || rotationPoint == len) return head
     
     let headNext = head.next
     
@@ -36,7 +29,7 @@ const rotateRight = function(head, k) {
     const finalHead = headNext
     head.next = null
     
-    while(headNext != null && headNext.next != null) {
+    while(headNext.next != null) {
         headNext = headNext.next
     }
     headNext.next = first
