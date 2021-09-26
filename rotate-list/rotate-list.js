@@ -20,7 +20,7 @@ const rotateRight = function(head, k) {
     k = k % len
     
     //empty list or no rotation required
-    if(head == null || head.next == null || k == 0) {
+    if(head === null || head.next === null || k === 0) {
         return head
     }
     
@@ -29,8 +29,8 @@ const rotateRight = function(head, k) {
         break the link between the (len-k)th element and the previous element 
         (len-k)th element is the final head after rotation
     */
-    while(head.next != null) {
-        if(len - k != 1) { 
+    while(head.next !== null) {
+        if(len - k !== 1) { 
             head = head.next
         } else { 
             let headNext = head.next
@@ -47,7 +47,7 @@ const rotateRight = function(head, k) {
 
 const findLength = function(head) {
     let n = 0
-    while(head != null) {
+    while(head !== null) {
         head = head.next
         n++
     }
