@@ -1,25 +1,31 @@
+const charCount = new Array(26)
 /**
  * @param {string[]} strs
  * @return {string[][]}
  */
 const groupAnagrams = function(strs) {
-    const sortedStrs = {}
+    const map = {}
     const answer = []
     let index = 0
-
-    for(let item in strs) {
-        const sortedItem = sortedString(strs[item])
-        if(sortedStrs.hasOwnProperty(sortedItem)) {
-            answer[sortedStrs[sortedItem]].push(strs[item])
+     
+    for(const item of strs) {     
+        const sortedItem = getSortedItem(item)
+        const mapValue = map[sortedItem]
+        if(undefined !== mapValue) {
+            answer[mapValue].push(item)
         } else {
-            sortedStrs[sortedItem] = index++
-            answer.push([strs[item]])
+            map[sortedItem] = index++
+            answer.push([item])
         }
     }
-    
     return answer
 }
 
-const sortedString = function(str) {
-    return str.split('').sort().join('')
+const getSortedItem = function(item) {
+    charCount.fill(0)
+    item.split('').forEach(ch => {
+        charCount[ch.charCodeAt() - 97]++
+    })
+    return charCount.join('-')
 }
+
