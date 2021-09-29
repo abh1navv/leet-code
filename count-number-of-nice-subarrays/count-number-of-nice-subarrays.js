@@ -12,12 +12,11 @@ const numberOfSubarrays = function(nums, k) {
         if(item % 2 === 1) {
             curr.push(i)
         } 
-        let len = curr.length
-        if( len > k+first ) { 
+        if( curr.length > k+first ) { 
             first++
         }
-        if( len === k + first ) { 
-            count = count + (len > first? curr[first] : i) - curr[first-1]
+        if( curr.length === k + first ) { 
+            count = count + (curr.length > first? curr[first] : i) - curr[first-1]
         }
     } 
     
