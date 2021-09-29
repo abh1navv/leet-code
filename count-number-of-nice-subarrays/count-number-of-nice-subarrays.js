@@ -16,7 +16,7 @@ const numberOfSubarrays = function(nums, k) {
             first++
         }
         if( curr.length === k + first ) { 
-            count = count + (curr.length > first? curr[first] : i) - curr[first-1]
+            count = count + (curr.length > first ? curr[first] : i) - curr[first-1]
         }
     } 
     
