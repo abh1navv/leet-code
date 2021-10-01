@@ -9,6 +9,7 @@ const generate = function(numRows) {
         for(let j=0; j<i+2; j++) {
             res[i+1].push((res[i][j-1] ?? 0) + (res[i][j] ?? 0))
         }
-    }     
+    }  
+    
     return res
 }
