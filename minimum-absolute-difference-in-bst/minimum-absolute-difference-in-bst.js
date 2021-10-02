@@ -11,8 +11,9 @@
  * @return {number}
  */
 const getMinimumDifference = function(root) {
-    let prev = Number.NEGATIVE_INFINITY, 
-        minDiff = Number.POSITIVE_INFINITY
+    let prev = -10000, 
+        minDiff = 10000
+    
     const inorder = function(root) {
         if(root === null) {
             return;
