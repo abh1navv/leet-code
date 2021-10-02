@@ -3,8 +3,7 @@
  * @param {number} k
  * @return {number}
  */
-var findPairs = function(nums, k) {
-    
+const findPairs = function(nums, k) {  
     let count = 0
     if(k === 0) {
         return zeroCase(nums)
