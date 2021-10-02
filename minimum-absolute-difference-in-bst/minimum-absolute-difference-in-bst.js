@@ -13,16 +13,13 @@
 const getMinimumDifference = function(root) {
     let prev = Number.NEGATIVE_INFINITY, 
         minDiff = Number.POSITIVE_INFINITY
-    
     const inorder = function(root) {
         if(root === null) {
             return;
         } 
         inorder(root.left)
-        
         minDiff = Math.min(minDiff, root.val - prev)
-        prev = root.val
-        
+        prev = root.val  
         inorder(root.right)
     }
     
