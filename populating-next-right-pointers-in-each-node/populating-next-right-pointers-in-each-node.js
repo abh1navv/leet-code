@@ -15,10 +15,11 @@
 const connect = function(root) {
         
     let head = root
+    let temp
     
     while(head !== null && head.left !== null) {
         
-        let temp = head
+        temp = head
         while(temp !== null) {
             temp.left.next = temp.right
             if(null !== temp.next) {
