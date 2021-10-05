@@ -17,14 +17,16 @@ const connect = function(root) {
     let head = root
     
     while(head !== null && head.left !== null) {
+        
         let temp = head
-        while(temp !=null) {
+        while(temp !== null) {
             temp.left.next = temp.right
             if(null !== temp.next) {
                 temp.right.next = temp.next.left
             }
             temp = temp.next
         }
+        
         head = head.left
     }
     return root
