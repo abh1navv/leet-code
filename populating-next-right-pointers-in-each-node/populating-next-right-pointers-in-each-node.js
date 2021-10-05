@@ -18,7 +18,6 @@ const connect = function(root) {
     let temp
     
     while(head !== null && head.left !== null) {
-        
         temp = head
         while(temp !== null) {
             temp.left.next = temp.right
