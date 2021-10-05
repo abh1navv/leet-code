@@ -15,10 +15,9 @@
 const connect = function(root) {
         
     let head = root
-    let temp
     
     while(head !== null && head.left !== null) {
-        temp = head
+        let temp = head
         while(temp !== null) {
             temp.left.next = temp.right
             if(null !== temp.next) {
@@ -26,7 +25,6 @@ const connect = function(root) {
             }
             temp = temp.next
         }
-        
         head = head.left
     }
     return root
