@@ -5,7 +5,7 @@ class Solution {
         int total = 0;
         
         while(left < right){
-            if(height[left] <= height[right]) {
+            if(height[left] < height[right]) {
                 maxLeft = Math.max(height[left], maxLeft);
                 total += maxLeft-height[left++];
             } else {
