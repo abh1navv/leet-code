@@ -6,21 +6,12 @@ class Solution {
         
         while(left < right){
             if(height[left] <= height[right]) {
-                if(height[left] >= maxLeft) {
-                    maxLeft = height[left++];
-                } else {
-                    total += maxLeft-height[left++];
-                    
-                } 
+                maxLeft = Math.max(height[left], maxLeft);
+                total += maxLeft-height[left++];
             } else {
-                if(height[right]>=maxRight) {
-                    maxRight = height[right--];
-                } else {
-                    total += maxRight-height[right--];
-                    
-                }                   
+                maxRight = Math.max(height[right], maxRight);
+                total += maxRight-height[right--];
             }
-            
         }
                 
         return total;
