@@ -6,20 +6,17 @@ class Solution {
         
         while(left < right){
             if(height[left] <= height[right]) {
-                if(height[left] >= maxLeft) {
+                if(height[left] >= maxLeft) 
                     maxLeft = height[left++];
-                } else {
+                else 
                     total += maxLeft-height[left++];
-                } 
             } else {
-                if(height[right]>=maxRight) {
+                if(height[right]>=maxRight) 
                     maxRight = height[right--];
-                } else {
+                else 
                     total += maxRight-height[right--];
-                    
-                }                   
+                                   
             }
-            
         }
                 
         return total;
