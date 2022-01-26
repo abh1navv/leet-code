@@ -14,6 +14,7 @@ class Solution {
             else if(!stT.isEmpty())
                 stT.pop();
         }
+        if(stS.size() != stT.size()) return false;
         
         while(!stS.isEmpty() && !stT.isEmpty()) {
             if(stS.pop() != stT.pop()) return false;
