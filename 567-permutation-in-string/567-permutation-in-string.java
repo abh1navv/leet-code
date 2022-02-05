@@ -56,10 +56,4 @@ class Solution {
     return false;
 }
 
-    private boolean isNull(Map<Character, Integer> map) {
-        for(Integer i: map.values()) {
-            if(i!=null && i!=0) return false;
-        }
-        return true;
-    }
 }
