@@ -18,14 +18,11 @@ class Solution {
         char ch = s2.charAt(i);
         Integer x = map.get(ch);
 
-        if(x!=null) {
+        if(x!=null && x!=0) {
             if(x==1) {
                 size--;
-                map.put(ch, null);
-            } else if(x==0) {
-                size++;
-                map.put(ch, x-1);
-            }
+                map.put(ch, 0);
+            } 
             else map.put(ch, x-1);
         }
         else {
@@ -36,13 +33,10 @@ class Solution {
         if(i - len1 >= 0) {
             ch = s2.charAt(i-len1);
             x = map.get(ch);
-            if(x!=null) {
+            if(x!=null && x!=0) {
                 if(x==-1) {
                     size--;
-                    map.put(ch, null);
-                } else if(x==0) {
-                    size++;
-                    map.put(ch, x+1);
+                    map.put(ch, 0);
                 } else {
                     map.put(ch, x+1);
                 }
@@ -53,8 +47,7 @@ class Solution {
             }
         }
         
-        if (size==0){//} && isNull(map)) {
-            //System.out.println(map + " "+ i);
+        if (size==0){
             return true;
         }
     }
