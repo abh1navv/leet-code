@@ -3,24 +3,34 @@ class Solution {
     int len1 = s1.length(), len2 = s2.length();
     if (len1 > len2) return false;
     
-    int[] count = new int[26];
+    Map<Character, Integer> map = new HashMap<>();
     for (int i = 0; i < len1; i++) {
-        count[s1.charAt(i) - 'a']++;
+        char ch = s1.charAt(i);
+        if(map.containsKey(ch)) map.put(ch, map.get(ch)+1);
+        else map.put(ch,1);
     }
     
     for (int i = 0; i < len2; i++) {
-        count[s2.charAt(i) - 'a']--;
-        if(i - len1 >= 0) count[s2.charAt(i - len1) - 'a']++;
-        if (allZero(count)) return true;
+        char ch = s2.charAt(i);
+        if(map.containsKey(ch)) map.put(ch, map.get(ch)-1);
+        else map.put(ch,-1);
+        
+        if(i - len1 >= 0) {
+            ch = s2.charAt(i-len1);
+            if(map.containsKey(ch)) map.put(ch, map.get(ch)+1);
+            else map.put(ch,1);
+        }
+        
+        if (allZero(map)) return true;
     }
     
     return false;
 }
 
-private boolean allZero(int[] count) {
-    for (int i = 0; i < 26; i++) {
-        if (count[i] != 0) return false;
+    private boolean allZero(Map<Character, Integer> map) {
+        for(int i: map.values()) {
+            if(i!=0) return false;
+        }
+        return true;
     }
-    return true;
-}
 }
