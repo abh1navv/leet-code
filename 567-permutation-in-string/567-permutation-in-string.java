@@ -13,7 +13,9 @@ class Solution {
     for (int i = 0; i < len2; i++) {
         char ch = s2.charAt(i);
         if(map.containsKey(ch)) map.put(ch, map.get(ch)-1);
-        else map.put(ch,-1);
+        else {
+            map.put(ch,-1);
+        }
         
         if(i - len1 >= 0) {
             ch = s2.charAt(i-len1);
