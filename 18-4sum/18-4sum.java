@@ -6,10 +6,10 @@ class Solution {
         
         
         for(int i=0; i<len-3; i++) {
-            long fourNum = ((long)nums[i])*4;
-            if(target < fourNum){
-                break;
-            }
+            // long fourNum = ((long)nums[i])*4;
+            // if(target < fourNum){
+            //     break;
+            // }
             for(int j=i+1; j<len-2; j++) {
                 int x = nums[i] + nums[j];
                 
