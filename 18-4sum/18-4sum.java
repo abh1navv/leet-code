@@ -22,8 +22,8 @@ class Solution {
                     if(y < nums[a] + nums[b]) b--;
                     else if (y> nums[a] + nums[b]) a++;
                     else {
-                        Integer[] arr = {nums[i], nums[j], nums[a], nums[b]};
-                        resList.add(Arrays.asList(arr));
+                        //Integer[] arr = {nums[i], nums[j], nums[a], nums[b]};
+                        resList.add(Arrays.asList(nums[i], nums[j], nums[a], nums[b]));
                         while(a<b && nums[a+1] == nums[a]) a++;
                         while(b>a && nums[b-1] == nums[b]) b--;
                         a++;
