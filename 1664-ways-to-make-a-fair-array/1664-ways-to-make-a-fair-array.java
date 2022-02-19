@@ -1,19 +1,19 @@
 class Solution {
     public int waysToMakeFair(int[] nums) {
-        int count = 0;
-        int[] left =new int[2];
-        int[] right =new int[2];
+        int c = 0;
+        int[] l =new int[2];
+        int[] r =new int[2];
         
         for(int i=0;i<nums.length;i++) {
-            right[i%2] += nums[i];
+            r[i%2] += nums[i];
         }
         
         for(int i=0;i<nums.length;i++) {
-            right[i%2]-=nums[i];
-            if(right[0] + left[1] == right[1] + left[0]) count++;
-            left[i%2]+=nums[i];
+            r[i%2]-=nums[i];
+            if(r[0] + l[1] == r[1] + l[0]) c++;
+            l[i%2]+=nums[i];
         }
-        return count;
+        return c;
     }
     
 }
