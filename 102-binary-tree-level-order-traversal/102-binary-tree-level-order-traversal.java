@@ -20,7 +20,7 @@ class Solution {
         queue.add(root);
         while(!queue.isEmpty()) {
             int n = queue.size();
-            List<Integer> list = new ArrayList<>(n);
+            List<Integer> list = new ArrayList<>();
             
             while(n>0) {
                 TreeNode element = queue.remove(0);
