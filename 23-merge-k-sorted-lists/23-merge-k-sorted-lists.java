@@ -27,9 +27,5 @@ class Solution {
         }
         return head.next;
     }
-    
-    void fillFirstKElements(PriorityQueue<ListNode> minHeap, ListNode[] lists) {
-        
-    }
 
 }
