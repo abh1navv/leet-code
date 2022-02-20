@@ -11,7 +11,7 @@
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists.length==0) return null;
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a,b) -> a.val-b.val);
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(lists.length, (a,b) -> a.val-b.val);
         ListNode head = new ListNode(0);
         for(ListNode node: lists) {
             if(node !=null)
