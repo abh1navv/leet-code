@@ -17,12 +17,15 @@ class Solution {
             if(node !=null)
                 minHeap.add(node);
         }
+        int k = minHeap.size();
         ListNode current = head;
-        while(!minHeap.isEmpty()) {
+        while(k>0) {
             current.next = minHeap.poll();
             current = current.next;
             if(current.next != null) {
                 minHeap.add(current.next);
+            } else {
+                k--;
             }
         }
         return head.next;
