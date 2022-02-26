@@ -2,9 +2,7 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> powerSet = new ArrayList<>();
         powerSet.add(new ArrayList<Integer>());
-        //for(int i=0; i<= nums.length;i++) {
-            getSubsets(nums, powerSet, new ArrayList<Integer>(), 0);
-        //}
+        getSubsets(nums, powerSet, new ArrayList<Integer>(), 0);
         return powerSet;
     }
     
