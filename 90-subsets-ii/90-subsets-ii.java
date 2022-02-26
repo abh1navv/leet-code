@@ -7,14 +7,14 @@ class Solution {
         powerSet.add(new ArrayList<Integer>());
         getSubsets(nums, powerSet, new ArrayList<Integer>(), 0, nums.length);
         List<List<Integer>> powerList=new ArrayList<>();
-        for(List<Integer> x: powerSet) {
-            powerList.add(x);
-        }
+        powerList.addAll(powerSet);
+        // for(List<Integer> x: powerSet) {
+        //     powerList.add(x);
+        // }
         return powerList;
     }
     
     void getSubsets(int[] nums, Set<List<Integer>> powerSet, List<Integer> list, int lastIndex, int len) {
-        //if(list.size() > len) return;
         for(int i=lastIndex;i<nums.length;i++) {
             list.add(nums[i]);
             powerSet.add(new ArrayList<>(list));
