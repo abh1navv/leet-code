@@ -16,7 +16,7 @@
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> paths = new LinkedList<>();
-        getPaths(root, targetSum, paths, new LinkedList<>());
+        getPaths(root, targetSum, paths, new ArrayList<>());
         return paths;
     }
     
@@ -24,7 +24,7 @@ class Solution {
         if(root == null) return;
         current.add(root.val);
         if(target == root.val && root.left == null && root.right == null) {
-            paths.add(new LinkedList<>(current));
+            paths.add(new ArrayList<>(current));
         } else {
             getPaths(root.left, target - root.val, paths, current);
             getPaths(root.right, target - root.val, paths, current);
