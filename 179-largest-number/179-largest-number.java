@@ -1,22 +1,15 @@
 class Solution {
     public String largestNumber(int[] nums) {
-        
-        nums = Arrays.stream(nums)
-                .boxed()
-                .sorted(new Comparator<Integer>(){
-                        public int compare(Integer a, Integer b){
-                            String str1 = String.valueOf(a);
-                            String str2 = String.valueOf(b);
-                            String s1 = str1 + str2;
-                            String s2 = str2 + str1;
-                            return s2.compareTo(s1);
-                        }
-                    }) 
-                .mapToInt(i -> i)
-                .toArray();
         List<String> list = new ArrayList<>();
         
         for(int i:nums) list.add(String.valueOf(i));
+        list.sort(new Comparator<String>(){
+                        public int compare(String a, String b){
+                            String s1 = a + b;
+                            String s2 = b + a;
+                            return s2.compareTo(s1);
+                        }
+                    });
         
         String ans = String.join("", list);
         int len = ans.length();
