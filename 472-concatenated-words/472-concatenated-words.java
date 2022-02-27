@@ -4,19 +4,20 @@ class Solution {
         List<String> ans = new ArrayList<>();
         Set<String> dict = new HashSet<>();
         for (String w : words) {
-            boolean[] dp = new boolean[w.length() + 1];
-            dp[0] = true;
+            int bit = 0;
+            bit = bit | 1;
             for (int i = 1; i <= w.length(); i++) {
                 for (int j = i; j > -1; j--) {
-                    if (dp[j] && dict.contains(w.substring(j, i))) {
-                        dp[i] = true;
+                    if (((bit & (1 << j)) != 0) && dict.contains(w.substring(j, i))) {
+                        bit = bit | (1 << i);
                         break;
                     }
                 }
             }
-            if (w.length() > 0 && dp[w.length()]) ans.add(w);
+            if (w.length() > 0 && ((bit & (1 << w.length())) != 0)) ans.add(w);
             dict.add(w);
         }
         return ans;
     }
+    
 }
