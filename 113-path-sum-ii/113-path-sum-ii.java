@@ -25,7 +25,7 @@ class Solution {
         sum += root.val;
         current.add(root.val);
         if(sum == target && root.left == null && root.right == null) {
-            paths.add(new ArrayList<>(current));
+            paths.add(new LinkedList<>(current));
         } else {
             getPaths(root.left, target, paths, current, sum);
             getPaths(root.right, target, paths, current, sum);
