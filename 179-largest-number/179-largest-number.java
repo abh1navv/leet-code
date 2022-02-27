@@ -14,8 +14,11 @@ class Solution {
                     }) 
                 .mapToInt(i -> i)
                 .toArray();
+        List<String> list = new ArrayList<>();
         
-        String ans = Arrays.toString(nums).replaceAll("\\[|\\]|,|\\s", "");
+        for(int i:nums) list.add(String.valueOf(i));
+        
+        String ans = String.join("", list);
         int len = ans.length();
         int i=0;
         while(i<len-1 && ans.charAt(i) == '0'){i++;}
