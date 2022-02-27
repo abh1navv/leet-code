@@ -16,19 +16,18 @@
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> paths = new LinkedList<>();
-        getPaths(root, targetSum, paths, new LinkedList<>(), 0);
+        getPaths(root, targetSum, paths, new LinkedList<>());
         return paths;
     }
     
-    public void getPaths(TreeNode root, int target, List<List<Integer>> paths, List<Integer> current, int sum) {
+    public void getPaths(TreeNode root, int target, List<List<Integer>> paths, List<Integer> current) {
         if(root == null) return;
-        sum += root.val;
         current.add(root.val);
-        if(sum == target && root.left == null && root.right == null) {
+        if(target == root.val && root.left == null && root.right == null) {
             paths.add(new LinkedList<>(current));
         } else {
-            getPaths(root.left, target, paths, current, sum);
-            getPaths(root.right, target, paths, current, sum);
+            getPaths(root.left, target - root.val, paths, current);
+            getPaths(root.right, target - root.val, paths, current);
         }
         current.remove(current.size()-1);
     }
