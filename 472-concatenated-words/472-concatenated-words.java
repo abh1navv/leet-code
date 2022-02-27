@@ -1,7 +1,7 @@
 class Solution {
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
         Arrays.sort(words, (w1, w2) -> (w1.length() - w2.length()));
-        List<String> ans = new LinkedList<>();
+        List<String> ans = new ArrayList<>();
         Set<String> dict = new HashSet<>();
         for (String w : words) {
             int bit = 0;
