@@ -8,7 +8,6 @@ class Solution {
     public void mergeSort(int[] nums, int start, int end){
         if(start>=end-1) return;
         int mid = (start+end)/2;
-        //System.out.println(mid);
         mergeSort(nums, start, mid);
         mergeSort(nums, mid, end);
         
@@ -20,6 +19,7 @@ class Solution {
         int[] left = new int[mid-start];
         System.arraycopy(nums, mid, right, 0,end-mid);
         System.arraycopy(nums, start, left, 0,mid-start);
+        
         int i=0, j=0, k=start;
         while(j!=right.length && i!=left.length) {
             if(right[j] < left[i]) {
