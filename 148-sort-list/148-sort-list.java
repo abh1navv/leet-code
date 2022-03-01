@@ -34,11 +34,7 @@ public class Solution {
             sorted = sorted.next;
         }
 
-        if (left != null)
-          sorted.next = left;
-
-        if (right != null)
-          sorted.next = right;
+        sorted.next = null != left? left : right;
 
         return temp.next;
     }
