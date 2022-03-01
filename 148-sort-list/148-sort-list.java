@@ -4,17 +4,18 @@ public class Solution {
         if (head == null || head.next == null)
             return head;
 
-        ListNode mid = null, slow = null, fast = head;
+        ListNode prev = null, slow = head, fast = head;
 
         while (fast != null && fast.next != null) {
-            slow = slow == null? head : slow.next;
+            prev = slow;
+            slow = slow.next;
             fast = fast.next.next;
         }
-        mid = slow.next;
-        slow.next = null;
+
+        prev.next = null;
 
         ListNode left = sortList(head);
-        ListNode right = sortList(mid);
+        ListNode right = sortList(slow);
 
         return merge(left, right);
     }
