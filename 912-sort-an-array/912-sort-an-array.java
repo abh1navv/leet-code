@@ -10,7 +10,6 @@ class Solution {
         int mid = (start+end)/2;
         mergeSort(nums, start, mid);
         mergeSort(nums, mid, end);
-        
         merge(nums, start, mid, end);
     }
     
