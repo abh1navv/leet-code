@@ -11,7 +11,7 @@ class Solution {
     boolean checkIL(String s1, int l1, String s2, int l2, String s3, int l3) {
         String key = l1+""+l2+""+l3;
         if(cache.containsKey(key)) {
-            System.out.println("Cache hit");
+            //System.out.println("Cache hit");
             return cache.get(key);
         }
         
