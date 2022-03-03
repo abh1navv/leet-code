@@ -19,11 +19,11 @@ class Solution {
         } else if(target < 0) {
             return;
         }
-        current.add(candidates[index]);
         for(int i=index; i< candidates.length; i++) {
+            current.add(candidates[index]);
             getCombinations(candidates, target-candidates[index], ans, current, i);
+            current.remove(current.size()-1);
         }
-        current.remove(current.size()-1);
 
     }
 }
