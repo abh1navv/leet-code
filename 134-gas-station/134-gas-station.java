@@ -5,8 +5,9 @@ class Solution {
         int start = 0;
         
         for(int i=0;i<gas.length;i++) {
-            tank += gas[i] - cost[i];
-            extra += gas[i] - cost[i];
+            int realCost = gas[i] - cost[i];
+            tank += realCost;
+            extra += realCost;
             
             if(extra < 0) {
                 start = i+1;
