@@ -20,8 +20,8 @@ class Solution {
             return;
         }
         for(int i=index; i< candidates.length; i++) {
-            current.add(candidates[index]);
-            getCombinations(candidates, target-candidates[index], ans, current, i);
+            current.add(candidates[i]);
+            getCombinations(candidates, target-candidates[i], ans, current, i);
             current.remove(current.size()-1);
         }
 
