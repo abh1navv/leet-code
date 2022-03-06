@@ -33,7 +33,4 @@ class Solution {
         return j;
     }
     
-    int distance(int x, int y) {
-        return x*x + y*y;
-    }
 }
