@@ -1,31 +1,39 @@
 class Solution {
-    public int[][] kClosest(int[][] points, int K) {
-    int len =  points.length, l = 0, r = len - 1;
-    while (l <= r) {
-        int mid = helper(points, l, r);
-        if (mid == K) break;
-        if (mid < K) {
-            l = mid + 1;
-        } else {
-            r = mid - 1;
+    public int[][] kClosest(int[][] points, int k) {
+        quickSelect(points, k, 0 , points.length-1);
+        return Arrays.copyOfRange(points, 0, k);
+    }
+    
+    void quickSelect(int[][] points, int k, int start, int end) {
+        if(start>=end) return;
+       
+        int j = partition(points, k, start, end);
+        
+        if(j == k) return;
+        else if(j<k) quickSelect(points, k, j+1 , end);
+        else quickSelect(points, k, start, j-1);
+    }
+    
+    int partition(int[][] points, int k, int start, int end) {
+        int[] current = points[end];
+        int j=start;
+        for(int i=start; i<end; i++) {
+            if(distance(points[i][0], points[i][1]) <= distance(current[0], current[1])) {
+                int[] temp = points[j];
+                points[j] = points[i];
+                points[i] = temp;
+                j++;
+            }
         }
+        
+        int[] temp = points[end];
+        points[end] = points[j];
+        points[j] = temp;
+        
+        return j;
     }
-    return Arrays.copyOfRange(points, 0, K);
-}
-
-private int helper(int[][] A, int l, int r) {
-    int[] pivot = A[l];
-    while (l < r) {
-        while (l < r && compare(A[r], pivot) >= 0) r--;
-        A[l] = A[r];
-        while (l < r && compare(A[l], pivot) <= 0) l++;
-        A[r] = A[l];
+    
+    int distance(int x, int y) {
+        return x*x + y*y;
     }
-    A[l] = pivot;
-    return l;
-}
-
-private int compare(int[] p1, int[] p2) {
-    return p1[0] * p1[0] + p1[1] * p1[1] - p2[0] * p2[0] - p2[1] * p2[1];
-}
 }
