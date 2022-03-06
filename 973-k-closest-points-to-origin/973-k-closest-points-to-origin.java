@@ -1,5 +1,7 @@
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
+        if (points.length<=k) 
+            return points;
         quickSelect(points, k, 0 , points.length-1);
         return Arrays.copyOfRange(points, 0, k);
     }
