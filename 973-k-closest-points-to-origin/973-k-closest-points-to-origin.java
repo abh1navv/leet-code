@@ -1,7 +1,7 @@
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
         quickSelect(points, k, 0 , points.length-1);
-        return Arrays.stream(points).limit(k).toArray(int[][]::new);
+        return Arrays.copyOfRange(points, 0, k);
     }
     
     void quickSelect(int[][] points, int k, int start, int end) {
