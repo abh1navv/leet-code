@@ -2,19 +2,17 @@ class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
                 
         List<List<Integer>> ans = new ArrayList<>();
-        PriorityQueue<Pair> pairs = new PriorityQueue<>(
-            (a,b) -> a.first+a.second-b.first-b.second);
+        PriorityQueue<List<Integer>> pairs = new PriorityQueue<>(
+            (a,b) -> a.get(0)+a.get(1)-b.get(0)-b.get(1));
         
-        for(int n:nums1) {
-            pairs.offer(new Pair(n, nums2[0], 0));
-        }
+        Arrays.stream(nums1).forEach(n -> pairs.offer(List.of(n, nums2[0], 0)));
         
         while(k-- > 0 && !pairs.isEmpty()) {
-            Pair current = pairs.poll();
-            ans.add(List.of(current.first, current.second));
+            List<Integer> current = pairs.poll();
+            ans.add(List.of(current.get(0), current.get(1)));
             
-            if(current.index != nums2.length-1) {
-                pairs.offer(new Pair(current.first, nums2[current.index+1], current.index+1));
+            if(current.get(2) != nums2.length-1) {
+                pairs.offer(List.of(current.get(0), nums2[current.get(2)+1], current.get(2)+1));
             }
         }
         
