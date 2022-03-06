@@ -5,23 +5,27 @@ class Solution {
         if(nums.length < 3) return count;
         
         Arrays.sort(nums);
-        int third = nums.length-1, second = nums.length-2, first = nums.length-3; 
+        int third = nums.length-1; 
         
-        while(second > 0) {            
-            while(first>=0 && nums[third] < nums[second] + nums[first--]) {
-                count++;
-            }
-            
-            second--;
-            first = second-1;
-            
-            if(second == 0) {
-                third--;
-                second = third - 1;
-                first = second - 1;
-            }
+        while(third > 1) {            
+            count += twoSum(nums[third], nums, 0, third-1);
+            third--;
         }
         
         return count;
     }
+    
+    int twoSum(int target, int[] nums, int start, int end) {
+        int valid = 0;
+        while(start<end) {
+            if(nums[start]+nums[end] > target) {
+                valid+=end-start;
+                end--;
+            } else {
+                start++;
+            } 
+        }
+        return valid;
+    }
+
 }
