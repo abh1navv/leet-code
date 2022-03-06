@@ -18,7 +18,7 @@ class Solution {
         int[] current = points[end];
         int j=start;
         for(int i=start; i<end; i++) {
-            if(points[i][0]*points[i][0]+points[i][1]*points[i][1] <= current[0]*current[0]+ current[1]*current[1]) {
+            if(distance(points[i][0], points[i][1]) <= distance(current[0], current[1])) {
                 int[] temp = points[j];
                 points[j] = points[i];
                 points[i] = temp;
@@ -33,4 +33,7 @@ class Solution {
         return j;
     }
     
+    int distance(int x, int y) {
+        return x*x + y*y;
+    }
 }
