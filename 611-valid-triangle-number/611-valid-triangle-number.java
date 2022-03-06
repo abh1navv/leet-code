@@ -9,7 +9,6 @@ class Solution {
         
         while(second > 0) {            
             while(first>=0 && nums[third] < nums[second] + nums[first--]) {
-                //System.out.println(third+ " "+ second+" "+first);
                 count++;
             }
             
