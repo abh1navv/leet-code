@@ -9,7 +9,7 @@ class Solution {
         
         while(k-- > 0 && !pairs.isEmpty()) {
             Pair current = pairs.poll();
-            ans.add(Arrays.asList(current.first, current.second));
+            ans.add(List.of(current.first, current.second));
             
             if(current.index != nums2.length-1) {
                 pairs.offer(new Pair(current.first, nums2[current.index+1], current.index+1));
