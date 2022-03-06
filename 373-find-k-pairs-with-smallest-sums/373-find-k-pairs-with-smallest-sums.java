@@ -5,7 +5,9 @@ class Solution {
         PriorityQueue<Pair> pairs = new PriorityQueue<>(
             (a,b) -> a.first+a.second-b.first-b.second);
         
-        Arrays.stream(nums1).forEach(n -> pairs.offer(new Pair(n, nums2[0], 0)));
+        for(int n:nums1) {
+            pairs.offer(new Pair(n, nums2[0], 0));
+        }
         
         while(k-- > 0 && !pairs.isEmpty()) {
             Pair current = pairs.poll();
