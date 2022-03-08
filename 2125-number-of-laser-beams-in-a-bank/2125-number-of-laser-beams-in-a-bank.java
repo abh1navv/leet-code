@@ -3,7 +3,12 @@ class Solution {
 
         int prev = 0, count = 0;
         for(int i=0; i<bank.length; i++) {
-            int curr = (int)bank[i].chars().filter(c -> c=='1').count();
+            int curr=0;
+             for(char c: bank[i].toCharArray()) {
+                 if(c=='1'){
+                     curr++;
+                }  
+             }
             if(curr > 0) {
                 count += curr*prev;
                 prev = curr;
