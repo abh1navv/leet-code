@@ -1,20 +1,19 @@
 class Solution {
     public int numberOfBeams(String[] bank) {
-        int[] matrix = new int[bank.length];
-        
-        for(int i=0; i< bank.length; i++) {
-            matrix[i] = bank[i].chars().map(c->c-48).reduce((a,b) -> a+b).getAsInt();
-        }
-        int prev = 0, count=0;
+
+        int prev = 0, count = 0;
         for(int i=0; i<bank.length; i++) {
-            if(matrix[i] == 0) continue;
-            else {
-                count+= prev*matrix[i];
-                prev = matrix[i];
+            int curr = countOnes(bank[i]);
+            if(curr > 0) {
+                count += curr*prev;
+                prev = curr;
             }
         }
         
         return count;
-        
+    }
+    
+    public int countOnes(String bank) {
+        return (int)bank.chars().filter(c -> c=='1').count();
     }
 }
