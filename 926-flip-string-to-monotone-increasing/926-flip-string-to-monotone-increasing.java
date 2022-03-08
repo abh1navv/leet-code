@@ -10,10 +10,8 @@ class Solution {
             char ch = s.charAt(i);
             if(ch == '1') before++;
             else if(ch == '0') after--;
-            //System.out.println(before+" "+ i+" "+after);
             min = Math.min(min, before+after);
         }
-        
         return min;
     }
     
