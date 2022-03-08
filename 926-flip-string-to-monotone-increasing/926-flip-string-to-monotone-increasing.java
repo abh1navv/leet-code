@@ -3,7 +3,7 @@ class Solution {
         int len = s.length();
         
         int before = 0;
-        int after = getInversions(s);
+        int after = (int)s.chars().filter(c->c=='0').count();
         int min = before+after;
         
         for(int i=0; i<len; i++) {
