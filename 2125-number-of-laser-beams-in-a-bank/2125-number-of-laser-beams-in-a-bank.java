@@ -3,7 +3,7 @@ class Solution {
 
         int prev = 0, count = 0;
         for(int i=0; i<bank.length; i++) {
-            int curr = countOnes(bank[i]);
+            int curr = (int)bank[i].chars().filter(c -> c=='1').count();
             if(curr > 0) {
                 count += curr*prev;
                 prev = curr;
@@ -13,7 +13,4 @@ class Solution {
         return count;
     }
     
-    public int countOnes(String bank) {
-        return (int)bank.chars().filter(c -> c=='1').count();
-    }
 }
