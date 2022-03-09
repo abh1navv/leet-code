@@ -1,15 +1,10 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        int count = 0;
+        int single = 0;
         for(int i:nums) {
-            if(set.contains(i)) count-=i;
-            else {
-                count+=i;
-                set.add(i);
-            }
+            single^=i;
         }
         
-        return count;
+        return single;
     }
 }
