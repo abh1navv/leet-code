@@ -1,12 +1,11 @@
 class Solution {
     public int[] countBits(int n) {
-        int bits = 0, prevCount = 0;
         int ans[]=new int[n+1];
         ans[0] = 0;
-        
+        int count = 0, j=0;
         for(int i=1; i<=n;i++) {
-            int count = 0;
-            int j=i;
+            count = 0;
+            j=i;
             while(j>0) {
                 if(ans[j] != 0) {
                     count+=ans[j];
