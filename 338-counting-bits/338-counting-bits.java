@@ -2,7 +2,6 @@ class Solution {
     public int[] countBits(int n) {
         int bits = 0, prevCount = 0;
         int ans[]=new int[n+1];
-        int dp[]=new int[n+1];
         ans[0] = 0;
         
         for(int i=1; i<=n;i++) {
@@ -25,14 +24,4 @@ class Solution {
         return ans;
     }
     
-    int solve(int n) {
-        if(n == 0) return 0;
-        if(n == 1) return 1;
-        
-        if(n%2 == 0) {
-            return solve(n/2);
-        } else {
-            return 1+solve(n/2);
-        }
-    }
 }
