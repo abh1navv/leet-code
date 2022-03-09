@@ -10,12 +10,9 @@ class Solution {
                 if(ans[j] != 0) {
                     count+=ans[j];
                     break;
-                } else if(j%2 == 0) {
-                    j/=2;
-                } else {
-                    count+=1;
-                    j/=2;
-                }
+                } 
+                count+=j%2;
+                j/=2;
             }
             ans[i] = count; 
         }
