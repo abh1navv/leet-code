@@ -8,14 +8,11 @@ class Solution {
         int end = 0;
         for(int i=0; i<s.length(); i++) {
             end = pos[s.charAt(i)-'a'];
-            
             for(int j=i+1;j<end;j++) {
                 end = Math.max(pos[s.charAt(j)-'a'] ,end);
             }
-            
             ans.add(end - i + 1);
             i = end;
-            //System.out.println(ans);
         }
         
         return ans;
