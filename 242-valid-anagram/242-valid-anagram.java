@@ -14,15 +14,11 @@ class Solution {
             count = map.getOrDefault(c, 0);
             map.put(c, count-1);
         }
-        
-        return allZeroes(map.values());
-    }
-    
-    public boolean allZeroes(Collection<Integer> values) {
-        for(int v: values) {
+        for(int v: map.values()) {
             if(v != 0) return false;
         }
         
         return true;
     }
+    
 }
