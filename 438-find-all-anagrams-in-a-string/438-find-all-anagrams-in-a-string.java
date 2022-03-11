@@ -5,9 +5,14 @@ class Solution {
         if(plen > slen) {
             return new ArrayList<>();
         }
+        int[] count = new int[26];
+        for(int i=0; i<p.length();i++) {
+            count[p.charAt(i)-'a']++;
+        }
+        
         List<Integer> ans = new ArrayList<>();
         for(int i=0;i<slen-plen+1;i++) {
-            if(isAnagram(s, i, i+plen, p)) {
+            if(count[s.charAt(i)-'a'] > 0 && isAnagram(s, i, i+plen, p)) {
                 ans.add(i);
             } 
         }
