@@ -3,7 +3,7 @@ class Solution {
     public boolean isAnagram(String s, String t) {
         Map<Character, Integer> map = new HashMap<>();
         
-        int count;
+        Integer count;
         
         for(char c: s.toCharArray()) {
             count = map.getOrDefault(c, 0);
@@ -11,7 +11,8 @@ class Solution {
         }
         
         for(char c: t.toCharArray()) {
-            count = map.getOrDefault(c, 0);
+            count = map.get(c);
+            if(count == null) return false;
             map.put(c, count-1);
         }
         for(int v: map.values()) {
