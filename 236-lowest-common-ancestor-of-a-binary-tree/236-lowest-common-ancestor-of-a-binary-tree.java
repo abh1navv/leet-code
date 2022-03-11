@@ -14,10 +14,7 @@ class Solution {
         findPath(root, p,new ArrayList<TreeNode>(), pathP);
         List<TreeNode> pathQ = new ArrayList<>();
         findPath(root,  q,new ArrayList<TreeNode>(), pathQ);
-        
-        //System.out.println(pathP.stream().map(i->String.valueOf(i.val)).collect(Collectors.joining(",")));
-        //System.out.println(pathQ.stream().map(i->String.valueOf(i.val)).collect(Collectors.joining(",")));
-        
+         
         for(int i=pathQ.size()-1; i>=0; i--) {
             if(pathP.contains(pathQ.get(i))) {
                 return pathQ.get(i);
