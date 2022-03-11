@@ -1,21 +1,17 @@
 import java.util.Collection;
 class Solution {
     public boolean isAnagram(String s, String t) {
-        Map<Character, Integer> map = new HashMap<>();
-        
-        Integer count;
+        int[] arr = new int[26];
+        if(s.length() != t.length()) return false;
         
         for(char c: s.toCharArray()) {
-            count = map.getOrDefault(c, 0);
-            map.put(c, count+1);
+            arr[c-'a']++;
         }
         
         for(char c: t.toCharArray()) {
-            count = map.get(c);
-            if(count == null) return false;
-            map.put(c, count-1);
+            arr[c-'a']--;
         }
-        for(int v: map.values()) {
+        for(int v: arr) {
             if(v != 0) return false;
         }
         
