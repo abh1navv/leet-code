@@ -1,20 +1,16 @@
 class Solution {
     public int[] dailyTemperatures(int[] temps) {
-        PriorityQueue<Temp> pq = new PriorityQueue<>((a,b) -> a.value - b.value);
-        pq.offer(new Temp(temps[0], 0));
+        Stack<Temp> pq = new Stack<>();
+        pq.push(new Temp(temps[temps.length-1], temps.length-1));
         
         int[] ans = new int[temps.length];
-        for(int i=1; i<temps.length; i++) {
-            while(!pq.isEmpty() && pq.peek().value < temps[i]) {
-                Temp curr = pq.poll();
-                ans[curr.pos] = i-curr.pos;
+        for(int i=temps.length-2; i>=0; i--) {
+            while(!pq.isEmpty() && pq.peek().value <= temps[i]) {
+                pq.pop();
             }
-            pq.offer(new Temp(temps[i], i));
-        }
-        
-        while(!pq.isEmpty()) {
-            Temp curr = pq.poll();
-            ans[curr.pos] = 0;
+            ans[i] = !pq.isEmpty() ? pq.peek().pos-i: 0;
+
+            pq.push(new Temp(temps[i], i));
         }
         
         return ans;
