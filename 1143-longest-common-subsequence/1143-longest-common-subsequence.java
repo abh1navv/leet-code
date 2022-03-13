@@ -10,7 +10,6 @@ class Solution {
         int[] dp=new int[n+1];
         for(int i=0;i<m;i++) {
             int prev = 0, prevLeft=0;
-
             for(int j=0; j<n;j++) {
                 prevLeft = prev;
                 prev = dp[j+1];
@@ -20,7 +19,6 @@ class Solution {
                     dp[j+1] = Math.max(dp[j], dp[j+1]);
                 }
             }
-            //System.out.println(Arrays.toString(dp));
         }
         
         
