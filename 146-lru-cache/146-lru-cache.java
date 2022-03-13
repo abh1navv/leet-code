@@ -22,27 +22,18 @@ class LRUCache {
         }
         removeNode(node);
         putAtEnd(node);
-                        //System.out.println("getting "+key);
-
-        //System.out.println(head);
 
         return node.val;
     }
     
     public void put(int key, int value) {
         Node newNode = new Node(key, value);
+        
         removeNode(cache.get(key));
-
         putAtEnd(newNode);
         
         cache.put(key, newNode);
-        
         checkCapacity();
-        
-        //System.out.println(head);
-        //System.out.println(tail);
-        //System.out.println(cache);
-
     }
     
     private void putAtEnd(Node newNode) {
@@ -69,7 +60,6 @@ class LRUCache {
             node.next = null;
             currCapacity--;
         }
-        
     }
     
     class Node {
