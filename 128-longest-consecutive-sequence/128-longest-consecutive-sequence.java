@@ -6,9 +6,9 @@ class Solution {
         for(int n:nums) {
             map.put(n,1);
         }
-
+        int x=0;
         for(int n:nums) {
-            int x = n-1;
+            x = n-1;
             while(map.containsKey(x)) { 
                 map.put(n, map.get(n)+map.get(x));
                 map.remove(x);
