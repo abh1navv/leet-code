@@ -4,7 +4,6 @@ class LRUCache {
     Node head, tail;
 
     int capacity;
-    int currCapacity = 0;
     
     public LRUCache(int capacity) {
         cache = new HashMap<>();
@@ -41,12 +40,11 @@ class LRUCache {
         newNode.prev = tail.prev;
         newNode.next = tail;
         tail.prev = newNode;
-        currCapacity++;
 
     }
     
     private void checkCapacity() {
-        if(currCapacity > capacity) {
+        if(cache.size() > capacity) {
             cache.remove(head.next.key);
             removeNode(head.next);
         }
@@ -58,7 +56,6 @@ class LRUCache {
             node.next.prev = node.prev;
             node.prev = null;
             node.next = null;
-            currCapacity--;
         }
     }
     
