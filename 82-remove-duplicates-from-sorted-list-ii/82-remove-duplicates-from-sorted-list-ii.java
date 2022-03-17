@@ -23,9 +23,7 @@ class Solution {
                     current = current.next;
                 }
                 prev.next = current.next;
-                //System.out.println(current.next.val+" "+current.next.next.val);
                 current = current.next;
-                //prev = prev.next;
             } else {
                 prev = current;
                 current = current.next;
