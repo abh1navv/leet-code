@@ -7,7 +7,7 @@ class Solution {
         }
         
         boolean[] visited=new boolean[26];
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
         
         int index = 0;
         for(char c: arr) {
