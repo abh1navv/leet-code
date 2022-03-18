@@ -26,7 +26,7 @@ class Solution {
         StringBuilder sb =new StringBuilder();
         
         while(!stack.isEmpty()) {
-            sb.insert(0,stack.pop());
+            sb.append(stack.pollLast());
         }
         
         
