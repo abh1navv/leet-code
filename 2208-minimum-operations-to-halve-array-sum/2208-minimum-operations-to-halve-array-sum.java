@@ -1,24 +1,26 @@
 class Solution {
-    
     public int halveArray(int[] nums) {
-        PriorityQueue<Double> pq = new PriorityQueue<>((a , b) -> a < b ? 1 : a > b ? -1 : 0);
         double sum = 0;
-        for(int n: nums) {
-            sum+=n;
-            pq.add((double)n);
+        PriorityQueue<Double> queue = new PriorityQueue<>( (a , b) -> a < b ? 1 : a > b ? -1 : 0);
+        
+        for (int num : nums){
+            sum += num;
+            queue.add((double)num);
         }
         
-        sum/=2.0;
-        int count = 0;
+        double target = sum / 2;
         double current;
-        while(sum>0) {
-            count++;
-            current = pq.poll();
-            current/=2;
-            sum-=current;
-            pq.add(current);
+        int moves = 0;
+        
+        while (target > 0){
+            current = queue.poll();
+            
+            current /= 2;
+            target -= current;
+            queue.add(current);
+            ++moves;
         }
         
-        return count;
+        return moves;
     }
 }
