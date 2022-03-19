@@ -12,6 +12,7 @@ class Solution {
     public void getPermutations(List<Integer> current, int[] nums, boolean[] seenIndexes) {
         if(current.size() == nums.length) {
             ans.add(new ArrayList<>(current));
+            return;
         }       
         
         for(int i=0; i<nums.length; i++) {
