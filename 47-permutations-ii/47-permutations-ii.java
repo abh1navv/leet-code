@@ -1,14 +1,15 @@
 class Solution {
+    Set<List<Integer>> ans = new HashSet<>();
+
     public List<List<Integer>> permuteUnique(int[] nums) {
-        Set<List<Integer>> ans = new HashSet<>();
         
         boolean[] seenIndexes = new boolean[nums.length];
-        getPermutations(new ArrayList<>(), ans, nums, seenIndexes);
+        getPermutations(new ArrayList<>(), nums, seenIndexes);
 
         return new ArrayList(ans);
     }
     
-    public void getPermutations(List<Integer> current, Set<List<Integer>> ans, int[] nums, boolean[] seenIndexes) {
+    public void getPermutations(List<Integer> current, int[] nums, boolean[] seenIndexes) {
         if(current.size() == nums.length) {
             ans.add(new ArrayList<>(current));
         }       
@@ -17,7 +18,7 @@ class Solution {
             if(!seenIndexes[i]) {
                 seenIndexes[i] = true;
                 current.add(nums[i]);
-                getPermutations(current, ans, nums, seenIndexes);
+                getPermutations(current, nums, seenIndexes);
                 current.remove(current.size()-1);
                 seenIndexes[i] = false;
             }
