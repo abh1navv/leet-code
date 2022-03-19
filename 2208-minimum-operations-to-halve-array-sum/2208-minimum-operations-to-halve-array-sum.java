@@ -10,9 +10,10 @@ class Solution {
         
         sum/=2.0;
         int count = 0;
+        double current;
         while(sum>0) {
             count++;
-            double current = pq.poll();
+            current = pq.poll();
             sum-=current/2;
             pq.offer(current/2);
         }
