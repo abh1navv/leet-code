@@ -7,11 +7,11 @@ class Solution {
 
         List<List<Integer>> res = new ArrayList<>();
 
-        for(List<Integer> list: ans) {
-            res.add(list);
-        }
+        // for(List<Integer> list: ans) {
+        //     res.add(list);
+        // }
         
-        return res;
+        return new ArrayList(ans);
     }
     
     public void getPermutations(List<Integer> current, Set<List<Integer>> ans, int[] nums, Set<Integer> seenIndexes) {
