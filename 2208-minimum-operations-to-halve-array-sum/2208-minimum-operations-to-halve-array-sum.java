@@ -5,7 +5,7 @@ class Solution {
         double sum = 0;
         for(int n: nums) {
             sum+=n;
-            pq.offer(new Double(n));
+            pq.offer((double)n);
         }
         
         sum/=2.0;
