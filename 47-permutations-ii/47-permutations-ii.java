@@ -5,12 +5,6 @@ class Solution {
         Set<Integer> seenIndexes = new HashSet<>();
         getPermutations(new ArrayList<>(), ans, nums, seenIndexes);
 
-        List<List<Integer>> res = new ArrayList<>();
-
-        // for(List<Integer> list: ans) {
-        //     res.add(list);
-        // }
-        
         return new ArrayList(ans);
     }
     
