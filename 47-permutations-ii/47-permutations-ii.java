@@ -1,5 +1,5 @@
 class Solution {
-    Set<List<Integer>> ans = new HashSet<>();
+    HashSet<List<Integer>> ans = new HashSet<>();
 
     public List<List<Integer>> permuteUnique(int[] nums) {
         
