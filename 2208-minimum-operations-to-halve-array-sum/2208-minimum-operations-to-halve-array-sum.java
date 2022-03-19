@@ -14,8 +14,9 @@ class Solution {
         while(sum>0) {
             count++;
             current = pq.poll();
-            sum-=current/2;
-            pq.add(current/2);
+            current/=2;
+            sum-=current;
+            pq.add(current);
         }
         
         return count;
