@@ -5,7 +5,7 @@ class Solution {
         double sum = 0;
         for(int n: nums) {
             sum+=n;
-            pq.offer((double)n);
+            pq.add((double)n);
         }
         
         sum/=2.0;
@@ -15,7 +15,7 @@ class Solution {
             count++;
             current = pq.poll();
             sum-=current/2;
-            pq.offer(current/2);
+            pq.add(current/2);
         }
         
         return count;
