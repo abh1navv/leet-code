@@ -15,12 +15,19 @@ class Solution {
                 botVal = freq[1][bottoms[i]];
             }
         }
-        int countTop=0;
-        boolean found = true;
         
-        // System.out.println(maxTop + ":" + maxBot);
-        // System.out.println(Arrays.toString(freq[0]));
+        if(topVal > botVal) {
+            return countFrom(tops, maxTop, bottoms);
+        } else {
+            return countFrom(bottoms, maxBot, tops);
+        } 
         
+
+    }
+    
+    int countFrom(int[] tops, int maxTop, int[] bottoms) {
+        int countTop = 0;
+        boolean found=true;
         for(int i=0; i<tops.length; i++) {
             if(maxTop != tops[i]) {
                 if(maxTop == bottoms[i]) {
@@ -32,24 +39,6 @@ class Solution {
             }
         }
         
-        if(!found) countTop=-1;
-        
-        int count=0;
-        found=true;
-        for(int i=0; i<bottoms.length; i++) {
-            if(maxBot != bottoms[i]) {
-                if(maxBot == tops[i]) {
-                    count++;
-                } else {
-                    found = false;
-                    break;
-                }
-            }
-        }
-        if(!found) count=countTop;
-        else if(countTop == -1) return count; 
-
-        return Math.min(count, countTop);
-
+        return found?countTop:-1;
     }
 }
