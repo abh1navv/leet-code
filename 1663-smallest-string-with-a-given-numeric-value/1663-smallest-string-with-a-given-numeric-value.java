@@ -1,8 +1,8 @@
 class Solution {
     public String getSmallestString(int n, int k) {
         char[] sb = new char[n];
-        int value = 0, maxPossible;
-        while(value != k && n!=0) {
+        int maxPossible;
+        while(0 != k && n!=0) {
             maxPossible  = Math.min(k-n, 25);
             k-=maxPossible+1;
             n--;
