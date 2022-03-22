@@ -4,7 +4,6 @@ class Solution {
         int value = 0, maxPossible;
         while(value != k && n!=0) {
             maxPossible  = Math.min(k-n, 25);
-            //System.out.println(maxPossible+":"+k+":"+n);
             k-=maxPossible+1;
             n--;
             sb[n] = (char)(maxPossible+'a');
