@@ -6,8 +6,7 @@ class Solution {
         
         for(int i=len-1; i>=0; i--) {
             shift = (shift+shifts[i])%26;
-            int x = (ch[i]-'a'+shift)%26;
-            ch[i] = (char)(x+'a');
+            ch[i] = (char)((ch[i]-'a'+shift)%26+'a');
         }
         
         return String.valueOf(ch);
