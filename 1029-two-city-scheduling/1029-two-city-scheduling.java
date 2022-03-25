@@ -1,35 +1,31 @@
 class Solution {
     public int twoCitySchedCost(int[][] costs) {
-        PriorityQueue<Cost> pqFirst = new PriorityQueue<>(
-            (a,b)->Math.abs(b.first-b.second)-Math.abs(a.second-a.first));
-
-        for(int i=0; i<costs.length; i++) {
-            Cost cost = new Cost(costs[i][0], costs[i][1]);
-            pqFirst.offer(cost);
-        }
+        
+        Arrays.sort(costs, (a,b)->Math.abs(b[0]-b[1])-Math.abs(a[0]-a[1]));
         
         int first = 0,second=0;
         int sum = 0, n=costs.length/2;
+        int index = 0;
         
         while(first!=n && second!=n) {
-            Cost curr = pqFirst.poll();
-            if(curr.first > curr.second) {
-                sum+=curr.second;
+            int[] curr = costs[index++];
+            if(curr[0]> curr[1]) {
+                sum+=curr[1];
                 second++;
             } else {
-                sum+=curr.first;
+                sum+=curr[0];
                 first++;
             }
         }
         
         while(first!=n) {
-            Cost curr = pqFirst.poll();
-            sum+=curr.first;
+            int[] curr = costs[index++];
+            sum+=curr[0];
             first++;
         }
         while(second!=n) {
-            Cost curr = pqFirst.poll();
-            sum+=curr.second;
+            int[] curr = costs[index++];
+            sum+=curr[1];
             second++;
         }
         
