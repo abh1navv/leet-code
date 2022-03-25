@@ -5,11 +5,10 @@ class Solution {
         
         int first = 0,second=0;
         int sum = 0, n=costs.length/2;
-        int i = 0;
-        int[] curr;
+        int index = 0;
         
         while(first!=n && second!=n) {
-            curr = costs[i++];
+            int[] curr = costs[index++];
             if(curr[0]> curr[1]) {
                 sum+=curr[1];
                 second++;
@@ -20,12 +19,12 @@ class Solution {
         }
         
         while(first!=n) {
-            curr = costs[i++];
+            int[] curr = costs[index++];
             sum+=curr[0];
             first++;
         }
         while(second!=n) {
-            curr = costs[i++];
+            int[] curr = costs[index++];
             sum+=curr[1];
             second++;
         }
