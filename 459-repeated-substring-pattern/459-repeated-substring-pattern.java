@@ -3,7 +3,7 @@ class Solution {
         int len = s.length();
         int start = 0;
         
-        for(int i=1; i<=len/2;i++) {
+        for(int i=len/2; i>=1;i--) {
             if(len%i==0 && matches(s, start, i, i, i+i)) {
                 int j=i;
                 while(i+j <= len) {
