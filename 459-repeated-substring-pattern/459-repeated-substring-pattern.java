@@ -4,7 +4,7 @@ class Solution {
         int start = 0;
         
         for(int i=1; i<=len/2;i++) {
-            if(matches(s, start, i, i, i+i)) {
+            if(len%i==0 && matches(s, start, i, i, i+i)) {
                 int j=i;
                 while(i+j <= len) {
                     if(!matches(s, start, i, j, i+j)) break;
