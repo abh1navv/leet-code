@@ -4,8 +4,16 @@ class Solution {
         int blen = b.length();
         for(int i=0;i <alen; i++) {
             if(a.charAt(i) == b.charAt(0)) {
-                matches = getRepetitions(a, b, i, alen, blen);
-                if(matches != -1) return matches+1;
+                int start = i;
+                matches = 0;
+                for(int j=0; j<blen; j++) {
+                    if(b.charAt(j)!=a.charAt(start%alen)) {
+                        matches = -1;
+                        break;
+                    }
+                    start++;
+                }
+                if(matches != -1) return (start-1)/alen + 1;
             }
         }
         
