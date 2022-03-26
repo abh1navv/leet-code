@@ -4,13 +4,10 @@ class Solution {
         int start = 0;
         
         for(int i=1; i<=len/2;i++) {
-            if(s.substring(start,i).equals(s.substring(i,i+i))) {
+            if(matches(s, start, i, i, i+i)) {
                 int j=i;
-                String first = s.substring(start,i);
                 while(i+j <= len) {
-                    String second = s.substring(j,i+j);
-                    //System.out.println(first+":"+second);
-                    if(!first.equals(second)) break;
+                    if(!matches(s, start, i, j, i+j)) break;
                     else {
                         j+=i;
                     }
@@ -20,5 +17,14 @@ class Solution {
         }
         
         return false;
+    }
+    
+    boolean matches(String s, int s1, int e1, int s2, int e2) {
+        while(s1<e1 && s2<e2 && s.charAt(s1) == s.charAt(s2)) {
+            s1++;
+            s2++;
+        }
+        
+        return s1==e1;
     }
 }
