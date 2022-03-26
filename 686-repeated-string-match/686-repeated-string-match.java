@@ -1,33 +1,17 @@
 class Solution {
     public int repeatedStringMatch(String a, String b) {
-        int alen = a.length(), matches=-1;
+        int alen = a.length(), count=0;
         int blen = b.length();
-        for(int i=0;i <alen; i++) {
-            if(a.charAt(i) == b.charAt(0)) {
-                int start = i;
-                matches = 0;
-                for(int j=0; j<blen; j++) {
-                    if(b.charAt(j)!=a.charAt(start%alen)) {
-                        matches = -1;
-                        break;
-                    }
-                    start++;
-                }
-                if(matches != -1) return (start-1)/alen + 1;
-            }
+        StringBuilder sb = new StringBuilder();
+        int len = 0;
+        while(len < blen) {
+            sb.append(a);
+            len+=alen;
+            count++;
         }
-        
-        return matches;
+        if(sb.toString().contains(b)) return count;
+        if(sb.append(a).toString().contains(b)) return ++count;
+        return -1;
     }
     
-    public int getRepetitions(String a, String b, int start, int n, int blen) {
-        for(int i=0; i<blen; i++) {
-            if(b.charAt(i)!=a.charAt(start%n)) {
-                return -1;
-            }
-            start++;
-        }
-        
-        return (start-1)/n;
-    }
 }
