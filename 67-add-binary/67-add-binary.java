@@ -22,9 +22,7 @@ class Solution {
             
             ans[maxLen-(index++)-1] = curr;
         }
-        //ans[0] = rem;
-        //System.out.println(Arrays.toString(ans));
-        
+
         StringBuilder sb = new StringBuilder();
         if(rem>0) sb.append(1);
         for(int i: ans) {
