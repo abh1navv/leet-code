@@ -1,18 +1,25 @@
 class Solution {
     public int countPrimes(int n) {
-        boolean[] isNotPrime = new boolean[n];
-        int count = 0;
+        if(n<=2) return 0;
         
-        for(int i=2; i<n;i++) {
+        boolean[] isNotPrime = new boolean[n];
+        updatePrimes(n, 2, isNotPrime);
+        int count = 1;
+        
+        for(int i=3; i<n;i+=2) {
             if(!isNotPrime[i]) {
                 count++;
-                int j=2;
-                while(i*j<n) {
-                    isNotPrime[i*j++] = true;
-                }
+                updatePrimes(n, i, isNotPrime);
             }
         }
         return count;
+    }
+    
+    public void updatePrimes(int n, int i, boolean[] isNotPrime) {
+        int j=2;
+        while(i*j<n) {
+            isNotPrime[i*j++] = true;
+        }
     }
     
 }
