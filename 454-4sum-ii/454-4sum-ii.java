@@ -5,14 +5,16 @@ class Solution {
         
         for(int i=0; i<n; i++) {
             for(int j=0; j<n; j++) {
-                seen.put(-nums1[i]-nums2[j], seen.getOrDefault(-nums1[i]-nums2[j], 0)+1);
+                int curr = -nums1[i]-nums2[j];
+                seen.put(curr, seen.getOrDefault(curr, 0)+1);
             }
         }
         int count = 0;
         for(int i=0; i<n; i++) {
             for(int j=0; j<n; j++) {
-                if(seen.containsKey(nums3[i]+nums4[j])){
-                    count+=seen.get(nums3[i]+nums4[j]);
+                int curr = nums3[i]+nums4[j];
+                if(seen.containsKey(curr)){
+                    count+=seen.get(curr);
                 }
             }
         }
