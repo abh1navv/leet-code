@@ -14,17 +14,18 @@
  * }
  */
 class Solution {
+    List<Integer> inOrder = new ArrayList<>();
+
     public int kthSmallest(TreeNode root, int k) {
-        List<Integer> preOrder = new ArrayList<>();
-        getPreOrder(root,preOrder);
-        return preOrder.get(k-1);
+        getInOrder(root);
+        return inOrder.get(k-1);
     }
     
-    public void getPreOrder(TreeNode root,List<Integer> list) {
+    public void getInOrder(TreeNode root) {
         if(root == null) return;
         
-        getPreOrder(root.left, list);
-        list.add(root.val);
-        getPreOrder(root.right, list);
+        getInOrder(root.left);
+        inOrder.add(root.val);
+        getInOrder(root.right);
     }
 }
