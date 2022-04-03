@@ -13,7 +13,7 @@ class Solution {
             return;
         }
         
-        for(int i=start;i<=n;i++) {
+        for(int i=start;i<=n + 1 - k + curr.size();i++) {
             curr.add(i);
             getCombinations(i+1, curr, ans, k, n);
             curr.remove(curr.size()-1);
