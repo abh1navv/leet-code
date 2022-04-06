@@ -5,7 +5,7 @@ class Solution {
         for(int i=0; i<arr.length-2;i++) {
             int diff = target-arr[i], count=0;
             int j=i+1,k=arr.length-1;
-            while(j<=k) {
+            while(j<k) {
                 if(arr[j]+arr[k] == diff) {
                     if(arr[j]!=arr[k]) {
                         int temp = k;
