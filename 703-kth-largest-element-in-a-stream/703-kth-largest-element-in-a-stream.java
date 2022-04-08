@@ -1,34 +1,23 @@
 class KthLargest {
 
-    int k;
-    List<Integer> nums;
-    public KthLargest(int k, int[] nums) {
-        this.k=k;
-        this.nums = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        Collections.sort(this.nums, (a,b)->b-a);
+    final PriorityQueue<Integer> q;
+        final int k;
+
+    public KthLargest(int k, int[] a) {
+        this.k = k;
+        q = new PriorityQueue<>(k);
+        for (int n : a)
+            add(n);
     }
-    
-    public int add(int val) {
-        if(nums.size()<=k) {
-            nums.add(val);
+
+    public int add(int n) {
+        if (q.size() < k)
+            q.offer(n);
+        else if (q.peek() < n) {
+            q.poll();
+            q.offer(n);
         }
-        if(nums.size()>=k && nums.get(k-1) > val) return nums.get(k-1);
-        int i=k-1,flag=0;
-        while(i>0) {
-            if(nums.get(i-1) > val) {
-                nums.set(i, val);
-                flag=1;
-                break;
-            } else {
-                nums.set(i,nums.get(i-1));
-                i--;
-            }
-        }
-        if(flag == 0) {
-            nums.set(0,val);
-        }
-        
-        return nums.get(k-1);
+        return q.peek();
     }
 }
 
