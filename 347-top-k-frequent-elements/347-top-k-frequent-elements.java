@@ -5,13 +5,10 @@ public class Solution {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
         PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
-        int count=0;
         for (int key : map.keySet()) {
             minHeap.offer(key);
-            count++;
-            if (count > k) {
+            if (minHeap.size() > k) {
                 minHeap.poll();
-                count--;
             }
         }
         int[] result = new int[k];
