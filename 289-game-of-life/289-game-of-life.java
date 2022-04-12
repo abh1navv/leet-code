@@ -12,7 +12,6 @@ class Solution {
         }
         
         for(int i=0; i<rows; i++) {
-            //System.out.println(Arrays.toString(board[i]));
             for(int j=0; j<cols; j++) {
                 if(board[i][j] == 2) board[i][j]=0;
                 if(board[i][j] == -1) board[i][j]=1;
