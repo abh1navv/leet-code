@@ -16,9 +16,9 @@ class Solution {
             if(m>0 && m<len && nums[m]>nums[m-1] && nums[m+1]<nums[m]) return m;
             else if(m<len&&nums[m]<nums[m+1]) start=m+1;
             else if(m>0&&nums[m-1]>nums[m]) end = m-1;
-            else {
-                return Math.max(findPeak(nums, m+1, end), findPeak(nums, start, m-1));
-            }
+            // else {
+            //     return Math.max(findPeak(nums, m+1, end), findPeak(nums, start, m-1));
+            // }
         }
         return -1;
     }
