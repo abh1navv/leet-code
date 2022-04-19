@@ -13,9 +13,8 @@ class Solution {
         Set<Integer> checked = new HashSet<>();
 
         for(int i=start; i<nums.length; i++) {
-            if(checked.contains(nums[i])) continue;
+            if(!checked.add(nums[i])) continue;
             if(curr.isEmpty() || nums[i]>=curr.get(curr.size()-1)) {
-                checked.add(nums[i]);
                 curr.add(nums[i]);
                 backtrack(nums, i+1, curr, res);
                 curr.remove(curr.size()-1);
