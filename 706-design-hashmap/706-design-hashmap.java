@@ -1,22 +1,22 @@
 class MyHashMap {
     Bucket[] arr;
     public MyHashMap() {
-        arr = new Bucket[1001];
+        arr = new Bucket[10001];
         Arrays.fill(arr, new Bucket());
     }
     
     public void put(int key, int value) {
-        int bucket = key/1000;
+        int bucket = key/10000;
         arr[bucket].put(key, value);
     }
     
     public int get(int key) {
-        int bucket = key/1000;
+        int bucket = key/10000;
         return arr[bucket].get(key);
     }
     
     public void remove(int key) {
-        int bucket = key/1000;
+        int bucket = key/10000;
         arr[bucket].remove(key);
     }
     
