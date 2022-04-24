@@ -1,10 +1,13 @@
 class UndergroundSystem {
 
-    Map<String, Double> avgs = new HashMap<>();
-    Map<String, Integer> dataCount = new HashMap<>();
-    Map<Integer, Trip> startMap = new HashMap<>(); 
+    Map<String, Double> avgs;
+    Map<String, Integer> dataCount;
+    Map<Integer, Trip> startMap; 
+    
     public UndergroundSystem() {
-        
+        avgs = new HashMap<>();
+        dataCount = new HashMap<>();
+        startMap = new HashMap<>();
     }
     
     public void checkIn(int id, String stationName, int t) {
@@ -13,6 +16,7 @@ class UndergroundSystem {
     
     public void checkOut(int id, String stationName, int t) {
         Trip trip = startMap.get(id);
+        
         String startStation = trip.startStation;
         int startTime = trip.time;
         String key = startStation+"_"+stationName;
@@ -21,6 +25,7 @@ class UndergroundSystem {
         int count = dataCount.getOrDefault(key, 0);
         
         double newAvg = (avg*count+(t-startTime))/(count+1);
+        
         dataCount.put(key, count+1);
         avgs.put(key, newAvg);
     }
