@@ -3,9 +3,10 @@
 
 class PeekingIterator implements Iterator<Integer> {
     
-    List<Integer> list = new LinkedList<>();
+    List<Integer> list;
     int pointer = 0;
 	public PeekingIterator(Iterator<Integer> iterator) {
+        list = new LinkedList<>();
 	    while(iterator.hasNext()) {
             list.add(iterator.next());
         }
