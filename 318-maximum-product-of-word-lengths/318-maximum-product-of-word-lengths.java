@@ -14,9 +14,9 @@ class Solution {
         
         for(int i=0; i<n-1; i++) {
             for(int j=i+1; j<n; j++) {
-                curr = words[i].length() * words[j].length();
-                if(curr > max && (flags[i] & flags[j]) == 0) {
-                    max = curr;
+                if((flags[i] & flags[j]) == 0) {
+                    curr = words[i].length() * words[j].length();
+                    max = Math.max(curr, max);
                 }
             }
         }
