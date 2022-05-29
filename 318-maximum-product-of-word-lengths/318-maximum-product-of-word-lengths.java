@@ -4,11 +4,11 @@ class Solution {
         int n = words.length;
         int max = 0, curr = 0;
         
-        boolean[][] flags = new boolean[n][26];
+        int[] flags = new int[n];
         
         for(int i=0; i<n; i++) {
             for(char c: words[i].toCharArray()) {
-                flags[i][c-'a'] = true;
+                flags[i] = flags[i] | ( 1 << (c-'a'));
             }
         }
         
@@ -24,9 +24,9 @@ class Solution {
         return max;
     }
     
-    boolean noMatch(boolean[] flags, String t) {
+    boolean noMatch(int flags, String t) {
         for(char c: t.toCharArray()) {
-            if(flags[c-'a']) return false;
+            if((flags & (1 << (c-'a'))) != 0) return false;
         }
         
         return true;
