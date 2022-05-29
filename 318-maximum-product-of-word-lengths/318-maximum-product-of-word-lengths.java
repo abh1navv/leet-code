@@ -1,6 +1,6 @@
 class Solution {
     public int maxProduct(String[] words) {
-        //List<String> sortedWords = Arrays.stream(words).sorted((a,b) -> b.length() - a.length());
+        Arrays.sort(words, (a,b) -> b.length() - a.length());
         int n = words.length;
         int max = 0, curr = 0;
         
