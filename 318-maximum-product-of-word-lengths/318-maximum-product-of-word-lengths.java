@@ -7,7 +7,8 @@ class Solution {
         int[] flags = new int[n];
         
         for(int i=0; i<n; i++) {
-            for(char c: words[i].toCharArray()) {
+            for(int j=0; j<words[i].length(); j++) {
+                char c = words[i].charAt(j);
                 flags[i] = flags[i] | ( 1 << (c-'a'));
             }
         }
