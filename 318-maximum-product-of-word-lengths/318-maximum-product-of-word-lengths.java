@@ -15,7 +15,7 @@ class Solution {
         for(int i=0; i<n-1; i++) {
             for(int j=i+1; j<n; j++) {
                 curr = words[i].length() * words[j].length();
-                if(curr > max && noMatch(flags[i], words[j])) {
+                if(curr > max && (flags[i] & flags[j]) == 0) {
                     max = curr;
                 }
             }
@@ -23,12 +23,5 @@ class Solution {
         
         return max;
     }
-    
-    boolean noMatch(int flags, String t) {
-        for(char c: t.toCharArray()) {
-            if((flags & (1 << (c-'a'))) != 0) return false;
-        }
-        
-        return true;
-    }
+
 }
