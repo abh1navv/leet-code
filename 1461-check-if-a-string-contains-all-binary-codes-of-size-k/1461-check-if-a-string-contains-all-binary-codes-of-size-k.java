@@ -4,7 +4,7 @@ class Solution {
         int n=0, bit = 0;
         int len = s.length();
         
-        Set<Integer> uniques = new HashSet<>();
+        boolean[] seen = new boolean[required];
         
         char ch;
         while(n<len) {
@@ -21,11 +21,11 @@ class Solution {
             n++;
             
             if(n>=k) {
-                uniques.add(bit);
+                seen[bit] = true;
             }
         }
         
-        
-        return uniques.size() == required;
+        for(boolean b: seen) if(!b) return false;
+        return true;
     }
 }
