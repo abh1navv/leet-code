@@ -16,7 +16,6 @@ class Solution {
               lastIndexOfSecond = i;  
             } else {
                 curr = i-start;
-                //System.out.println(curr+":"+i+":"+start);
                 max = Math.max(max, curr);
                 
                 if(fruits[i-1] == first) {
