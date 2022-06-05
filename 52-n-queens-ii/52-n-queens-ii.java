@@ -16,7 +16,7 @@ class Solution {
                 if(row == n-1) {
                     ways++;
                 } else {
-                    boolean[][] copy = Arrays.stream(matrix).map(boolean[]::clone).toArray(boolean[][]::new);
+                    boolean[][] copy = copyMatrix();
                     fillMatrix(row, i);
                     ways+=countWays(row+1);
                     matrix=copy;
@@ -35,6 +35,16 @@ class Solution {
                 }
             }
         }
+    }
+    
+    boolean[][] copyMatrix() {
+        boolean[][] copy = new boolean[n][n];
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<n; j++) {
+                copy[i][j] = matrix[i][j];
+            }
+        }
+        return copy;
     }
     
 }
