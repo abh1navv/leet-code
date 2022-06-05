@@ -1,8 +1,8 @@
 class Solution {
-    int[][] matrix;
+    boolean[][] matrix;
     int n;
     public int totalNQueens(int n) {
-        matrix = new int[n][n];
+        matrix = new boolean[n][n];
 
         this.n=n;
         return countWays(0, -2);
@@ -12,12 +12,12 @@ class Solution {
         int ways=0;
         
         for(int i=0; i<n; i++) {
-            if(matrix[row][i]==0) {
+            if(!matrix[row][i]) {
                 if(row == n-1) {
                     ways++;
                 } else {
-                    int[][] copy = Arrays.stream(matrix).map(int[]::clone).toArray(int[][]::new);
-                    fillMatrix(row, i, 1);
+                    boolean[][] copy = Arrays.stream(matrix).map(boolean[]::clone).toArray(boolean[][]::new);
+                    fillMatrix(row, i);
                     ways+=countWays(row+1, i);
                     matrix=copy;
                 }
@@ -27,11 +27,11 @@ class Solution {
     }
 
     
-    void fillMatrix(int row, int col, int val) {
+    void fillMatrix(int row, int col) {
         for(int i=0; i<n; i++) {
             for(int j=0; j<n; j++) {
                 if(i==row || j==col || Math.abs(i-row)==Math.abs(j-col)) {
-                    matrix[i][j] = val;
+                    matrix[i][j] = true;
                 }
             }
         }
