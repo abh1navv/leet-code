@@ -40,7 +40,9 @@ class Solution {
     boolean[][] copyMatrix() {
         boolean[][] copy = new boolean[n][n];
         for(int i=0; i<n; i++) {
-            copy[i] = matrix[i].clone();
+            for(int j=0; j<n; j++) {
+                copy[i][j] = matrix[i][j];
+            }
         }
         return copy;
     }
