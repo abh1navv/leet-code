@@ -1,11 +1,8 @@
 class Solution {
     int[][] matrix;
-    int[][] swapMatrix;
-    int[][] temp;
     int n;
     public int totalNQueens(int n) {
         matrix = new int[n][n];
-        swapMatrix = new int[n][n];
 
         this.n=n;
         return countWays(0, -2);
