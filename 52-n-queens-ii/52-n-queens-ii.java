@@ -3,12 +3,12 @@ class Solution {
     int n;
     public int totalNQueens(int n) {
         matrix = new boolean[n][n];
-
         this.n=n;
-        return countWays(0, -2);
+        
+        return countWays(0);
     }
     
-    int countWays(int row, int prev) {        
+    int countWays(int row) {        
         int ways=0;
         
         for(int i=0; i<n; i++) {
@@ -18,7 +18,7 @@ class Solution {
                 } else {
                     boolean[][] copy = Arrays.stream(matrix).map(boolean[]::clone).toArray(boolean[][]::new);
                     fillMatrix(row, i);
-                    ways+=countWays(row+1, i);
+                    ways+=countWays(row+1);
                     matrix=copy;
                 }
             }
