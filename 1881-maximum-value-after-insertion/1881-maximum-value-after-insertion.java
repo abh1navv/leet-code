@@ -1,8 +1,9 @@
 class Solution {
     public String maxValue(String n, int x) {
+        int len = n.length();
         StringBuilder sb=new StringBuilder(); 
         boolean negative = n.charAt(0) == '-'; 
-        for(int i=0; i<n.length(); i++) {
+        for(int i=0; i<len; i++) {
             char c = n.charAt(i);
             if(c-'0' > x && negative) {
                 sb.append(x);
@@ -16,7 +17,7 @@ class Solution {
                 sb.append(c);
             }
         }
-        if(sb.length() == n.length())                 
+        if(sb.length() == len)                 
             sb.append(String.valueOf(x));
 
         return sb.toString();
