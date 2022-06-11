@@ -26,6 +26,8 @@ class Solution {
                 if(left < i) {
                     curr = left + nums.length-i;
                     min = Math.min(min, curr);
+                } else {
+                    break;
                 }
             }
             
