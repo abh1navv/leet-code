@@ -5,7 +5,7 @@ class Solution {
             else return person1[1]-person2[1];
         });
         
-        List<int[]> list = new ArrayList<>();
+        List<int[]> list = new LinkedList<>();
         
         
         int len = people.length;
