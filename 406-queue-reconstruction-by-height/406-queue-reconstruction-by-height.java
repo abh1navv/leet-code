@@ -7,8 +7,6 @@ class Solution {
         
         List<int[]> list = new LinkedList<>();
         
-        
-        int len = people.length;
         for(int[] person: people) {
             list.add(person[1], person);
         }
