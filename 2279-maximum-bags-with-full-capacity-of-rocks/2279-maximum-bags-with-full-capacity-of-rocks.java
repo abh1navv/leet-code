@@ -9,8 +9,6 @@ class Solution {
             if(capacity[i] <= additionalRocks) {
                 ans++;
                 additionalRocks-=capacity[i];
-            } else {
-                break;
             }
         }
         
