@@ -14,7 +14,7 @@ func deleteMiddle(head *ListNode) *ListNode {
     var zero = &ListNode{0, head}
     temp := zero
 
-    ans := head
+    //ans := head
     for temp != nil && temp.Next !=nil && temp.Next.Next != nil {
         zero = zero.Next
         temp = temp.Next.Next
@@ -22,5 +22,5 @@ func deleteMiddle(head *ListNode) *ListNode {
     
     zero.Next = zero.Next.Next
     
-    return ans
+    return head
 }
