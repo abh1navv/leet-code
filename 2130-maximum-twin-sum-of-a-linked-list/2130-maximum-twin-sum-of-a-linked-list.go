@@ -31,13 +31,13 @@ func pairSum(head *ListNode) int {
 }
 
 func reverse(head *ListNode) *ListNode {
-    var prev *ListNode
+    var front *ListNode
     curr := head
     for curr != nil {
-        next := curr.Next
-        curr.Next = prev
-        prev = curr
-        curr = next
+        next := curr.Next // saving next of the current node
+        curr.Next = front // reversing current node - keeping at front
+        front = curr // updating front
+        curr = next // updating current node to the next one
     }
-    return prev
+    return front
 }
