@@ -6,15 +6,15 @@
  * }
  */
 func pairSum(head *ListNode) int {
-    var copyHead = &ListNode{0, nil}
-    first:= head
+    temp := head
+    first := head
     
-    for head != nil {
-        var elem = &ListNode{head.Val, nil}
-        elem.Next = copyHead
-        copyHead = elem
+    for temp != nil && temp.Next !=nil {
         head = head.Next
+        temp = temp.Next.Next
     }
+    
+    copyHead := reverse(head)
 
     var max = first.Val + copyHead.Val;
     
@@ -28,4 +28,16 @@ func pairSum(head *ListNode) int {
     
     return max;
     
+}
+
+func reverse(head *ListNode) *ListNode {
+    var prev *ListNode
+    curr := head
+    for curr != nil {
+        next := curr.Next
+        curr.Next = prev
+        prev = curr
+        curr = next
+    }
+    return prev
 }
