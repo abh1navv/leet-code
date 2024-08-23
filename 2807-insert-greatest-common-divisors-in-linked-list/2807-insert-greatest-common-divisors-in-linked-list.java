@@ -20,18 +20,24 @@ class Solution {
     }
     
     public void insertGCD(ListNode head, ListNode  next) {
-        int gcd = calculateGCD(head.val, next.val);
+        int gcd = findGcd(head.val, next.val);
         var gcdNode = new ListNode(gcd, next);
         head.next = gcdNode;
     }
     
-    public int calculateGCD(int a, int b) {
-        for(int i=Math.min(a, b); i>=1; i--) {
-            if(a%i ==0 && b%i ==0) {
-                return i;
+    int findGcd(int a, int b) {
+        while(a > 0 && b > 0) {
+            if(a > b) {
+                a = a % b;
+            }
+            else {
+                b = b % a; 
             }
         }
-        
-        return 1;
+
+        if(a == 0) {
+            return b;
+        }
+        return a;
     }
 }
