@@ -9,9 +9,8 @@
 
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
-        boolean found = false;
         int low = 1;
-        while(found != true) {
+        while(true) {
             int curr = low+(n-low)/2;
 
             if(guess(curr) == 0) return curr;
@@ -22,6 +21,5 @@ public class Solution extends GuessGame {
             }
         }
         
-        return -1;
     }
 }
