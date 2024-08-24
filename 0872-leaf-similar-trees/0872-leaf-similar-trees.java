@@ -21,19 +21,7 @@ class Solution {
         List<Integer> secondLeaves = new ArrayList<>();
         computeLeaves(secondLeaves, root2);
         
-        System.out.println(firstLeaves);
-        System.out.println(secondLeaves);
-        
-        if(firstLeaves.size() != secondLeaves.size()) return false;
-        
-        for(int i=0; i< firstLeaves.size(); i++) {
-            if(!firstLeaves.get(i).equals(secondLeaves.get(i))) {
-                
-                return false;
-            }
-        }
-        
-        return true;
+        return firstLeaves.equals(secondLeaves);
     }
     
     void computeLeaves(List<Integer> leaves, TreeNode root) {
