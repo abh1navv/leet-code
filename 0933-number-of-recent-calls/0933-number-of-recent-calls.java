@@ -21,8 +21,6 @@ class RecentCounter {
         
         while(head!=null && newNode.val - head.val >3000) {
             head = head.next;
-
-
             counter--;
         }
 
