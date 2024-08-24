@@ -6,24 +6,14 @@ class Solution {
         if(slen > tlen) return false;
         if(slen == 0) return true;
         
+        int k=0;
         
-        for(int i=0; i<tlen-slen+1;i++) {
-            if(s.charAt(0) == t.charAt(i)) {
-                int k=0;
-                for(int j=i; j<tlen; j++) {
-                    
-                    if(t.charAt(j) == s.charAt(k)) {
-                        k++;
-                    }
-                    if(k == slen) {
-                        return true;
-                    }
-                   
-                }
-                
+        for(int i=0; i<tlen && k<slen ;i++) {
+            if(t.charAt(i) == s.charAt(k)) {
+                k++;
             }
         }
         
-        return false;
+        return k == slen;
     }
 }
