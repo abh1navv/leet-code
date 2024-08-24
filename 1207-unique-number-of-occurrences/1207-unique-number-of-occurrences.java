@@ -4,9 +4,7 @@ class Solution {
         for(int num: arr) {
             map.put(num, map.getOrDefault(num,0) + 1);
         }
-        
-        //System.out.println(map.values().stream().distinct().toList().size());
-        
-        return map.values().stream().distinct().toList().size() == map.size();
+                
+        return map.values().stream().collect(Collectors.toSet()).size() == map.size();
     }
 }
