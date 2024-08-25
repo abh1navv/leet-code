@@ -5,6 +5,10 @@ class Solution {
             int count = 0;
             int j=i;
             while(j>0) {
+                if(arr[j] !=0) {
+                    count+=arr[j];
+                    break;
+                }
                 count+= j%2;
                 j/=2;
             }
