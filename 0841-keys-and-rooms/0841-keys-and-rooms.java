@@ -3,7 +3,6 @@ class Solution {
         Set<Integer> visited=new HashSet<>();
         List<Integer> queue = new ArrayList<>();
         queue.add(0);
-        int visitedCount = 0;
         
         int start=0;
         
@@ -11,11 +10,10 @@ class Solution {
             if(!visited.contains(queue.get(start))) {
                 queue.addAll(rooms.get(queue.get(start)));
                 visited.add(queue.get(start));
-                visitedCount++;
             }
             start++;
         }
         
-        return visitedCount == rooms.size();
+        return visited.size() == rooms.size();
     }
 }
