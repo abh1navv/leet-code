@@ -17,7 +17,6 @@ class Solution {
                 swap(i, j, nums);
             } else {
                 swap(start, j, nums);
-                //System.out.println(Arrays.toString(nums));
                 
                 if(j>nums.length-k) {
                    while(j>start && nums[j] == nums[j-1]) j--;
