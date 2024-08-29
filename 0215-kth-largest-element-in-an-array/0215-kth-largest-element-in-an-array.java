@@ -1,32 +1,41 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        quickSelect(0, nums.length-1, nums, nums.length-k);
+        
+        quickSelect(0, nums.length-1, nums, k);
         return nums[nums.length-k];
     }
     
-    public void quickSelect(int start, int end, int[] nums, int k) {        
-        while(true) {
-            int pivot = nums[start];
-            int j=start+1;
-            for(int i=start+1; i<=end; i++) {
-                if(nums[i] < pivot) {
-                    int temp = nums[j];
-                    nums[j] = nums[i];
-                    nums[i] = temp;
-                    j++;
-                } 
+    void quickSelect(int start, int end, int[] nums, int k) {
+        if(start >= end) return;
+
+        int i=start+1, j=end;
+        while(i<=j) {
+            while(i<=j && nums[i] <= nums[start]) i++;
+            while(j>=i && nums[j] >= nums[start]) j--;
+            
+            if(i<j) {
+                swap(i, j, nums);
+            } else {
+                swap(start, j, nums);
+                //System.out.println(Arrays.toString(nums));
+                
+                if(j>nums.length-k) {
+                   while(j>start && nums[j] == nums[j-1]) j--;
+                    end = j-1;
+                } else if(j < nums.length-k) {
+                    while(j<end && nums[j] == nums[j+1]) j++;
+                    start = j+1;
+                } else {
+                    return;
+                }
+                i=start+1;j=end;
             }
-
-            int temp = nums[j-1];
-            nums[j-1] = pivot;
-            nums[start] = temp;
-
-            if(j-1 > k) 
-                end = j-2;
-            else if(j-1 < k)
-                start=j;
-            else 
-                return;
         }
+    }
+    
+    void swap(int a, int b, int[] nums) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
     }
 }
