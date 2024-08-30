@@ -8,9 +8,9 @@ class Solution {
                 count++;
             }
             
-            a = a/2;
-            b = b/2;
-            c = c/2;
+           a = a>>1;
+            b = b>>1;
+            c = c>>1;
             
         }
         
