@@ -16,15 +16,10 @@ class Solution {
         ListNode evenHead = head.next;
         ListNode tail=head;
         while(curr!=null && curr.next != null) {                 
-            //System.out.println(curr.val+":"+counter);
             ListNode next = curr.next;
-            //if(counter%2==0) {
-                //System.out.println(next.val);
-                curr.next=curr.next.next;
-                tail.next = next;
-                tail=next;
-            //}
-            
+            curr.next = next.next;
+            tail.next = next;
+            tail=next;
             curr=curr.next;
         }
         tail.next=evenHead;
