@@ -3,12 +3,10 @@ class Solution {
         int count=0;
         while(a!=0 || b!=0 || c!=0){
             int cdigit = c%2;
-            int bdigit = b%2;
-            int adigit = a%2;
 
             if(cdigit == 0) {
-                count+=adigit+bdigit;
-            } else if(adigit==0 && bdigit==0) {
+                count+=b%2+a%2;
+            } else if( a%2==0 && b%2==0) {
                 count++;
             }
             
