@@ -5,7 +5,6 @@ class Solution {
             int cdigit = c%2;
             int bdigit = b%2;
             int adigit = a%2;
-            //System.out.println(adigit+" "+bdigit+" "+cdigit+" "+count);
 
             if(cdigit == 0) {
                 count+=adigit+bdigit;
@@ -18,7 +17,6 @@ class Solution {
             b = b/2;
             c = c/2;
             
-            //System.out.println(a+" "+b+" "+c+" "+count);
         }
         
         return count;
