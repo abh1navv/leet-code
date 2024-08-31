@@ -2,8 +2,6 @@ class Solution {
     public int findMinArrowShots(int[][] points) {
         Arrays.sort(points, (a,b) -> Integer.compare(a[0],b[0]));
         
-        
-        
         int count=0,i=0;
         while(i<points.length) {
             int currEnd = points[i][1];
@@ -12,8 +10,6 @@ class Solution {
                 currEnd = Math.min(points[i+1][1], currEnd);
                 i++;
             }
-            
-            //System.out.println("Adding:"+points[i][0]+":"+points[i][1]);
             count++;
             i++;
         }
