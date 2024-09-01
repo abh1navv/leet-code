@@ -39,7 +39,6 @@ class Solution {
             if(curr > max) {
                 max=curr;
                 ans=level;
-                //System.out.println(curr+":"+level);
             }
             level++;
         }
