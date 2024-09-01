@@ -15,18 +15,19 @@
  */
 class Solution {
     public int maxLevelSum(TreeNode root) {
-        List<TreeNode> queue=  new ArrayList<>();
+        Queue<TreeNode> queue=  new LinkedList<>();
         queue.add(root);
         int index=0;
         int max=root.val-1;
         int level=1;
         int ans=1;
         
-        while(index<queue.size()) {
+        while(!queue.isEmpty()) {
             int len = queue.size();
             int curr=0;
+            index=0;
             while(index<len) {
-                TreeNode currNode = queue.get(index++);
+                TreeNode currNode = queue.poll();
                 curr+=currNode.val;
                 if(currNode.left != null) {
                     queue.add(currNode.left);
@@ -34,6 +35,7 @@ class Solution {
                 if(currNode.right != null){
                     queue.add(currNode.right);
                 }
+                index++;
             }
             
             if(curr > max) {
