@@ -2,8 +2,7 @@ class Solution {
     public int[] asteroidCollision(int[] asteroids) {
         int len = asteroids.length;
         int[] positive=new int[len];
-        int[] negative=new int[len];
-        int posTop = -1, negTop=-1;
+        int posTop = -1, negTop=len;
         for(int asteroid: asteroids) {
             if(asteroid > 0) {
                
@@ -18,23 +17,20 @@ class Solution {
                     if(posTop > -1 && positive[posTop]*-1 == asteroid) {
                         posTop--;
                     } else if(posTop == -1){
-                        negative[++negTop] = asteroid;
+                        positive[--negTop] = asteroid;
                     }
                 } else {
-                    negative[++negTop]=asteroid;
+                    positive[--negTop]=asteroid;
                 }
             }
-            //System.out.println(Arrays.toString(positive) + ":" +posTop);
-            //System.out.println(Arrays.toString(negative) + ":" +negTop);
-
         }
-        int[] ans = new int[posTop+1+negTop+1];
+        int[] ans = new int[posTop+1+(len-negTop)];
         int index = ans.length-1;
         while(posTop > -1) {
             ans[index--] = positive[posTop--]; 
         }
-        while(negTop > -1) {
-            ans[index--] = negative[negTop--]; 
+        while(negTop < len) {
+            ans[index--] = positive[negTop++]; 
         }
         
         return ans;
