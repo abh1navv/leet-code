@@ -16,7 +16,7 @@ class Solution {
                     //System.out.println("adding for"+currCon[0]+":"+currCon[1]);
                     count++;
                     visited.add(currCon[1]);
-                } else if(visited.contains(currCon[1])) {
+                } else if(visited.contains(currCon[1]) && !visited.contains(currCon[0])) {
                     visited.add(currCon[0]);
                 }
             }
