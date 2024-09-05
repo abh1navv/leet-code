@@ -1,16 +1,16 @@
 class StockSpanner {
 
-    LinkedList<Price> stack;
+    Stack<Price> stack;
     public StockSpanner() {
-         stack=new LinkedList<>();
+         stack=new Stack<>();
     }
     
     public int next(int price) {
         Price newPrice = new Price(price, 1);
-        while(!stack.isEmpty() && stack.peekLast().val <= price) {
-            newPrice.lower += stack.pollLast().lower;
+        while(!stack.isEmpty() && stack.peek().val <= price) {
+            newPrice.lower += stack.pop().lower;
         }
-        stack.add(newPrice);
+        stack.push(newPrice);
         
         return newPrice.lower;
     }
