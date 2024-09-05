@@ -1,22 +1,28 @@
 class StockSpanner {
 
-    int count=-1;
-    List<Integer> list=new ArrayList<>();
+    LinkedList<Price> stack;
     public StockSpanner() {
-        
+         stack=new LinkedList<>();
     }
     
     public int next(int price) {
-        int index=count;
-        int ans=0;
-        while(index>=0 && list.get(index--) <= price) {
-            ans++;
+        Price newPrice = new Price(price, 1);
+        while(!stack.isEmpty() && stack.peekLast().val <= price) {
+            newPrice.lower += stack.pollLast().lower;
         }
+        stack.add(newPrice);
         
-        list.add(price);
-        count++;
-
-        return ans+1;
+        return newPrice.lower;
+    }
+    
+    private static class Price {
+        int val;
+        int lower;
+        
+        Price(int val, int lower) {
+            this.val= val;
+            this.lower = lower;
+        }
     }
 }
 
