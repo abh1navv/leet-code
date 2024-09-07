@@ -1,17 +1,23 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        int dp[]=new int[nums.length];
-        int max=0;
+        int dp[]=new int[nums.length+1];
         
-        for(int i=1; i<nums.length; i++) {
-            for(int j=0; j<i; j++) {
-                if(nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[i], dp[j]+1);
-                    max = Math.max(dp[i], max);
+        int size=0;
+        
+        for(int i=0; i<nums.length; i++) {
+            int start=0, end=size;
+            while(start<end) {
+                int mid = start + (end-start)/2;
+                if(dp[mid] < nums[i]) { // find position of last element higher than nums
+                    start = mid+1;
+                } else {
+                    end = mid;
                 }
             }
+            dp[start] = nums[i]; // replace last element higher than nums with nums - it forms a subsequence of same length but with lesser end
+            if(start == size) size++;
         }
         
-        return max+1;
+        return size;
     }
 }
