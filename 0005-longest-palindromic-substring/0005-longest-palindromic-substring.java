@@ -5,7 +5,10 @@ class Solution {
         
         for(int i=0; i<s.length(); i++) {
             int curr1 = longestPal(s, i, i);
-            int curr2 = longestPal(s, i, i+1);
+            int curr2 = 0;
+            if(i<s.length()-1 && s.charAt(i) == s.charAt(i+1)) {
+                curr2 = longestPal(s, i, i+1);
+            }
             
             if(curr1 > max) {
                 max = curr1;
