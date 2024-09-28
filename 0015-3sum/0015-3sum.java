@@ -19,7 +19,6 @@ class Solution {
                     j++;
                     k--;
                 } else if(nums[j] + nums[k] > -1*nums[i]) {
-                    //while(k >=j && nums[k] == nums[k-1]) k--;
                     k--;
                 } else {
                     while(j< k && nums[j] == nums[j+1]) j++;
