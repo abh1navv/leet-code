@@ -14,17 +14,18 @@ class Solution {
             
             
             while(j<k) {
+                if(j>i+1 && j<k && nums[j] == nums[j-1]) {
+                    j++;
+                    continue;
+                }
                 
-                if(nums[j] + nums[k] == -1*nums[i]) {
+                if(nums[j] + nums[k] == -nums[i]) {
                     ans.add(List.of(nums[i], nums[j], nums[k]));
-                    while(j< k && nums[j] == nums[j+1]) j++;
                     j++;
                     k--;
-                } else if(nums[j] + nums[k] > -1*nums[i]) {
-                    //while(k >=j && nums[k] == nums[k-1]) k--;
+                } else if(nums[j] + nums[k] > -nums[i]) {
                     k--;
                 } else {
-                    while(j< k && nums[j] == nums[j+1]) j++;
                     j++;
                 }
             }
