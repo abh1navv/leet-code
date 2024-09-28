@@ -8,7 +8,6 @@ class Solution {
         for(int i=0; i<s.length(); i++) {
             char ch = s.charAt(i);
             if(charToIndex.containsKey(ch) && charToIndex.get(ch) >= start) {
-                //System.out.println(i-start);
                 maxCount = Math.max(i-start, maxCount);
                 start = charToIndex.get(ch)+1;
             } 
