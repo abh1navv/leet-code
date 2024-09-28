@@ -2,8 +2,6 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         
-        
-        //Set<List<Integer>> ans = new HashSet<>();
         List<List<Integer>> ans = new ArrayList<>();
         
         for(int i=0; i<nums.length-2; i++) {
@@ -22,7 +20,6 @@ class Solution {
                 if(nums[j] + nums[k] == -nums[i]) {
                     ans.add(List.of(nums[i], nums[j], nums[k]));
                     j++;
-                    k--;
                 } else if(nums[j] + nums[k] > -nums[i]) {
                     k--;
                 } else {
