@@ -22,17 +22,20 @@ class Solution {
         
         
         while(!next.isEmpty()) {
-            //for(int n: next) {
+            int len = next.size();
+            while(len > 0) {
                 int n = next.poll();
                 count++;
                 if(dependents.containsKey(n)) {
-                for(int x: dependents.get(n)) {
-                    required[x]--;
-                    if(required[x] <= 0){
-                        next.add(x);
+                    for(int x: dependents.get(n)) {
+                        required[x]--;
+                        if(required[x] <= 0){
+                            next.add(x);
+                        }
                     }
                 }
-                }
+                len--;
+            }
             
         }
         
