@@ -1,12 +1,14 @@
 class Solution {
-    
-    //Set<Search> unsuccessfulSearches = new HashSet<>();
-    
     public boolean exist(char[][] board, String word) {
-        int m = board.length, n = board[0].length;
-        for(int i=0; i<m; i++) {
-            for(int j=0; j<n; j++) {
-                if(found(i, j, word, 0, m, n, board)) {
+        int rows = board.length;
+        int cols = board[0].length;
+        int len = word.length();
+        
+        int[][] dp=new int[rows][cols];
+        
+        for(int i=0; i<rows; i++) {
+            for(int j=0; j<cols; j++) {
+                if(exists(board, word, i, j, 0, rows, cols, len, dp)) {
                     return true;
                 }
             }
@@ -15,42 +17,19 @@ class Solution {
         return false;
     }
     
-    boolean found(int row, int col, String word, int index, int m, int n,char[][] board) {
-        
-        
-        if(board[row][col] != word.charAt(index)) {
-            return false;
+    public boolean exists(char[][] board, String word, int i, int j, int pos, int rows, int cols, int len, int[][] dp) {
+        if(i<0 || j<0 || i==rows || j==cols || dp[i][j] == 1) return false;
+        else if(board[i][j] != word.charAt(pos)) return false;
+        else if(pos == len-1) return true;
+        else {
+            dp[i][j] = 1;
+            boolean ans = false;
+            ans = ans || exists(board, word, i-1, j, pos+1, rows, cols, len, dp);
+            ans = ans || exists(board, word, i, j-1, pos+1, rows, cols, len, dp);
+            ans = ans || exists(board, word, i+1, j, pos+1, rows, cols, len, dp);
+            ans = ans || exists(board, word, i, j+1, pos+1, rows, cols, len, dp);
+            dp[i][j] = 0;
+            return ans;
         }
-        index++;
-
-        if(index == word.length()) {
-            return true;
-        }
-    
-        boolean left = false, right = false, top = false, bottom = false;
-        
-        char temp =  board[row][col];
-        board[row][col] = '0';
-        
-        if(row > 0) {
-            left = found(row-1, col, word, index, m, n, board);
-        }
-        
-        if(row <m-1) {
-            right = found(row+1, col, word, index, m, n, board);
-        }
-        
-        if(col > 0) {
-            top = found(row, col-1, word, index, m, n, board);
-        } 
-        
-        if(col <n-1) {
-            bottom = found(row, col+1, word, index, m, n, board);
-        }
-        
-        board[row][col] = temp;
-        
-        return left || right || top || bottom;
-        
     }
 }
