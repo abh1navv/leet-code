@@ -10,7 +10,7 @@ class Solution {
             maxProfit = Math.max(maxProfit, prices[i]-min);
         }
         
-        System.out.println(Arrays.toString(profitBefore));
+        //System.out.println(Arrays.toString(profitBefore));
         
         
         int max=0; maxProfit = 0;
