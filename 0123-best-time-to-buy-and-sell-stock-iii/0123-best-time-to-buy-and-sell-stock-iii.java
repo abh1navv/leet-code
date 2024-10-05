@@ -8,10 +8,7 @@ class Solution {
             profitBefore[i] = maxProfit;
             min = Math.min(min, prices[i]);
             maxProfit = Math.max(maxProfit, prices[i]-min);
-        }
-        
-        //System.out.println(Arrays.toString(profitBefore));
-        
+        }        
         
         int max=0; maxProfit = 0;
 
