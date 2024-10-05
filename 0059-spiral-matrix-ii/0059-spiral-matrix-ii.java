@@ -27,9 +27,7 @@ class Solution {
     
     int getNextRow(int row, int col, int len, int start) {
         if(col == len && row < len) return row+1; // going down
-        if(col == len && row == len) return row; // going left
         if(col == start && row > start+1) return row-1; // going up
-        if(col == start && row == start+1) return row; // going right
         
         
         return row;
@@ -37,9 +35,7 @@ class Solution {
     
     int getNextCol(int row, int col, int len, int start) {
         if(row == start && col < len) return col+1; // going right
-        if(row == len && col == len) return col-1; // going left
         if(row == len && col > start) return col-1; // going left
-        if(col == start && row == start) return col; // going up
         if(col == start && row == start+1) return col+1; // going right
         
         return col;
