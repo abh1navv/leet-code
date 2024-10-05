@@ -13,17 +13,22 @@ class Solution {
             freq2[s2.charAt(i)-'a']++;
         }
         
+        if(Arrays.equals(freq1, freq2)) {
+            return true;
+        }
+        
         
         for(int i=len; i<s2.length(); i++) {
+            freq2[s2.charAt(i)-'a']++;
+            freq2[s2.charAt(i-len)-'a']--;
+            
             if(Arrays.equals(freq1, freq2)) {
                 return true;
             }
             
-            freq2[s2.charAt(i)-'a']++;
-            freq2[s2.charAt(i-len)-'a']--;
         }
         
-        return Arrays.equals(freq1, freq2);
+        return false;
     }
     
 }
