@@ -1,6 +1,6 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        Set<List<Integer>> ans = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
         ans.add(new ArrayList<>());
 
         findSubsets(ans, new ArrayList<>(), nums, 0);
@@ -8,10 +8,8 @@ class Solution {
         return new ArrayList<>(ans);
     }
     
-    void findSubsets(Set<List<Integer>> ans, List<Integer> curr, int[] nums, int index) {
-        
-        if(curr.size() == nums.length) return;
-        
+    void findSubsets(List<List<Integer>> ans, List<Integer> curr, int[] nums, int index) {
+                
         for(int i=index; i<nums.length; i++) {
             if(!curr.contains(nums[i])) {
                 curr.add(nums[i]);
