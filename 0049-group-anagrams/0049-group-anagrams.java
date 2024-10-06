@@ -13,7 +13,7 @@ class Solution {
             
         }
         
-        return sortAndGroup.values().stream().toList();
+        return new ArrayList<>(sortAndGroup.values());
     }
         
 }
