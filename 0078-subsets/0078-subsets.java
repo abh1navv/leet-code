@@ -14,7 +14,6 @@ class Solution {
             if(!curr.contains(nums[i])) {
                 curr.add(nums[i]);
                 ans.add(new ArrayList<>(curr));
-
                 findSubsets(ans, curr, nums, i);
                 curr.remove(curr.size()-1);
             }
