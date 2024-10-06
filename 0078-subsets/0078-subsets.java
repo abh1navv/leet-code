@@ -5,7 +5,7 @@ class Solution {
 
         findSubsets(ans, new ArrayList<>(), nums, 0);
         
-        return new ArrayList<>(ans);
+        return ans;
     }
     
     void findSubsets(List<List<Integer>> ans, List<Integer> curr, int[] nums, int index) {
