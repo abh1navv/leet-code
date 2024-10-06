@@ -3,27 +3,17 @@ class Solution {
         Map<String, List<String>> sortAndGroup = new HashMap<>();
         
         for(String str: strs) {
-            String sorted = getCountString(str);
+            char[] arr = str.toCharArray();
+            Arrays.sort(arr);
+            
+            String sorted = new String(arr);
             List<String> prev = sortAndGroup.getOrDefault(sorted, new ArrayList<>());
             prev.add(str);
             sortAndGroup.put(sorted, prev);
             
         }
-        List<List<String>> ans = new ArrayList<>();
-        for(List<String> value: sortAndGroup.values()) {
-            ans.add(value);
-        }
         
-        return ans;
-    }
-    
-    String getCountString(String str) {
-        int[] counts = new int[26];
-        for(char ch: str.toCharArray()) {
-            counts[ch-'a']++;
-        }
-        
-        return Arrays.toString(counts);
+        return sortAndGroup.values().stream().toList();
     }
         
 }
