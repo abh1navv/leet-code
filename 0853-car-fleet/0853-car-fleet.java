@@ -12,7 +12,7 @@ class Solution {
         int top=0;
         stack[top] = carIterator.next();
         
-       System.out.println(sortedCars);
+      // System.out.println(sortedCars);
 
         int count=0;
         while(carIterator.hasNext()) {
