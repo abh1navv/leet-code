@@ -18,7 +18,7 @@ class Solution {
             curr.deleteCharAt(curr.length()-1);
         }
         
-        if(right<n && right<left) {
+        if(right<left) {
             curr.append(")");
             getStrings(ans, n, left, right+1, curr);
             curr.deleteCharAt(curr.length()-1);
