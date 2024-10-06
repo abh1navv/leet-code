@@ -9,8 +9,12 @@ class Solution {
             sortAndGroup.put(sorted, prev);
             
         }
+        List<List<String>> ans = new ArrayList<>();
+        for(List<String> value: sortAndGroup.values()) {
+            ans.add(value);
+        }
         
-        return sortAndGroup.values().stream().toList();
+        return ans;
     }
     
     String getCountString(String str) {
