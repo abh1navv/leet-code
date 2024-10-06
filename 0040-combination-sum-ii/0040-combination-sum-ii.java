@@ -2,15 +2,14 @@ class Solution {
     
     public List<List<Integer>> combinationSum2(int[] nums, int target) {
         Arrays.sort(nums);
-        Set<List<Integer>> ans = new HashSet<>();
-        getSubsets(nums, ans, new ArrayList<Integer>(), 0, target);
+        List<List<Integer>> ans = new ArrayList<>();
+        getSubsets(nums, ans, new ArrayList<>(), 0, target);
         return new ArrayList<>(ans);
     }
     
     
-    void getSubsets(int[] nums, Set<List<Integer>> ans, List<Integer> list, int lastIndex, int target) {
+    void getSubsets(int[] nums, List<List<Integer>> ans, List<Integer> list, int lastIndex, int target) {
         if(target == 0) {
-           // Collections.sort(list);
             ans.add(new ArrayList<>(list));
             return;
         } else if(target < 0) {
