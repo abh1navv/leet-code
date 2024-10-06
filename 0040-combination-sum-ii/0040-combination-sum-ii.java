@@ -18,7 +18,10 @@ class Solution {
                 
         
         for(int i=lastIndex;i<nums.length;i++) {
-           if(i>lastIndex && nums[i]==nums[i-1]) continue;
+            if(i>lastIndex && nums[i]==nums[i-1]) continue;
+            if (nums[i] > target) {
+                break;
+            }
             list.add(nums[i]);            
             getSubsets(nums, ans, list,i+1, target-nums[i]);
             list.remove(list.size()-1); 
