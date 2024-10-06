@@ -10,7 +10,7 @@ class Solution {
     
     void getSubsets(int[] nums, Set<List<Integer>> ans, List<Integer> list, int lastIndex, int target) {
         if(target == 0) {
-            Collections.sort(list);
+           // Collections.sort(list);
             ans.add(new ArrayList<>(list));
             return;
         } else if(target < 0) {
