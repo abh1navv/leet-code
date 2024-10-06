@@ -8,11 +8,11 @@ class Solution {
     
     void getSubsets(int[] nums, List<List<Integer>> ans, List<Integer> list, int lastIndex, int target) {
         if(target == 0) {
-                ans.add(new ArrayList<>(list));
-                return;
-            } else if(target < 0) {
-                return;
-            }
+            ans.add(new ArrayList<>(list));
+            return;
+        } else if(target < 0) {
+            return;
+        }
                 
         
         for(int i=lastIndex;i<nums.length;i++) {
