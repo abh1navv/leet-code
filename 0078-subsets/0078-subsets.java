@@ -10,7 +10,7 @@ class Solution {
         ans.add(new ArrayList<>(curr));
 
         for(int i=index; i<nums.length; i++) {
-            if(!curr.contains(nums[i])) {
+            if(curr.add(nums[i])) {
                 curr.add(nums[i]);
                 findSubsets(ans, curr, nums, i);
                 curr.remove(nums[i]);
