@@ -10,11 +10,11 @@ class Solution {
         ans.add(new ArrayList<>(curr));
 
         for(int i=index; i<nums.length; i++) {
-            if(curr.add(nums[i])) {
+           // if(curr.add(nums[i])) {
                 curr.add(nums[i]);
-                findSubsets(ans, curr, nums, i);
+                findSubsets(ans, curr, nums, i+1);
                 curr.remove(nums[i]);
-            }
+            //}
         }
     }
 }
