@@ -23,7 +23,6 @@ class Solution {
                 while(top>=0 && curr.eta >= stack[top].eta)
                     stack[top--] = curr;
                 top++;
-                
             }
             
            //System.out.println(Arrays.toString(stack));
