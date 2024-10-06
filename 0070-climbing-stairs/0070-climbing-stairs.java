@@ -5,12 +5,12 @@ class Solution {
 
         int prev = 1, prevPrev = 1;
         
-        for(int i=2; i<n; i++) {
+        for(int i=2; i<=n; i++) {
             int temp = prevPrev+prev;
             prevPrev = prev;
             prev = temp;
         }
         
-        return prev+prevPrev;
+        return prev;
     }
 }
