@@ -11,6 +11,8 @@ class Solution {
         ans.add(new ArrayList<>(curr));
 
         for(int i=index; i<nums.length; i++) {
+            if(i>index && nums[i] == nums[i-1]) continue;
+
             curr.add(nums[i]);
             findSubsets(ans, curr, nums, i+1);
             curr.remove(curr.size()-1);
