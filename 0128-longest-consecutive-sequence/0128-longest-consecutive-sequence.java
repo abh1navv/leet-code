@@ -15,6 +15,7 @@ class Solution {
             if(!seen.contains(n-1)) {
                 int x = n;
                 while(seen.contains(++x)) {
+                    seen.remove(x-1);
                     curr++;
                 }
             } 
