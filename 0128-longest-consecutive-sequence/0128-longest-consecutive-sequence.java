@@ -9,12 +9,14 @@ class Solution {
         int x=0;
         for(int n:nums) {
             x = n-1;
+            int curr = map.getOrDefault(n,0);
             while(map.containsKey(x)) { 
-                map.put(n, map.get(n)+map.get(x));
+                curr+=map.get(x);
                 map.remove(x);
                 x--;
             }
-            max = Math.max(max, map.getOrDefault(n,0));
+            map.put(n, curr);
+            max = Math.max(max, curr);
         }        
         
         
