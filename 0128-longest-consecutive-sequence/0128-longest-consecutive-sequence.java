@@ -13,9 +13,10 @@ class Solution {
         for(int n:nums) {
             int curr = 1;
             if(!seen.contains(n-1)) {
-                int x = n;
-                while(seen.contains(++x)) {
-                    seen.remove(x-1);
+                int x = n+1;
+                while(seen.contains(x)) {
+                    seen.remove(x);
+                    x++;
                     curr++;
                 }
             } 
