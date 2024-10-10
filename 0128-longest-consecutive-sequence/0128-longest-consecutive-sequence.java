@@ -11,10 +11,9 @@ class Solution {
         }
         
         for(int n:nums) {
-            int x = n-1, curr=0;
+            int x = n-1;
             while(seen.containsKey(x)) {
-                curr = seen.get(x) + seen.get(n);
-                seen.put(n, curr);
+                seen.put(n, seen.get(x) + seen.get(n));
                 seen.remove(x--);
             } 
 
