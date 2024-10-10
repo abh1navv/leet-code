@@ -12,13 +12,16 @@ class Solution {
         
         for(int n:nums) {
             int x = n-1;
-            while(seen.containsKey(x)) {
-                seen.put(n, seen.get(x) + seen.get(n));
-                seen.remove(x--);
+            int curr = 1;
+            if(!seen.containsKey(x)) {
+                while(seen.containsKey(x+2)) {
+                    curr++;
+                    x++;
+                }
             } 
 
             
-            max = Math.max(max, seen.getOrDefault(n,0));
+            max = Math.max(max, curr);
         }
         
         
