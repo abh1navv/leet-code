@@ -13,12 +13,14 @@ class Solution {
         for(int n:nums) {
             int curr = 1;
             if(!seen.contains(n-1)) {
+                seen.remove(n);
                 int x = n+1;
                 while(seen.contains(x)) {
                     seen.remove(x);
                     x++;
                     curr++;
                 }
+                
             } 
             max = Math.max(max, curr);
 
