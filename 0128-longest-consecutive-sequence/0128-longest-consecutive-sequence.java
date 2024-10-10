@@ -11,12 +11,11 @@ class Solution {
         }
         
         for(int n:nums) {
-            int x = n-1;
+            int x = n;
             int curr = 1;
-            if(!seen.contains(x)) {
-                while(seen.contains(x+2)) {
+            if(!seen.contains(x-1)) {
+                while(seen.contains(++x)) {
                     curr++;
-                    x++;
                 }
             } 
 
