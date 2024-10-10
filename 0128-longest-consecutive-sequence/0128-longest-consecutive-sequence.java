@@ -11,16 +11,18 @@ class Solution {
         }
         
         for(int n:nums) {
-            int x = n;
-            int curr = 1;
-            if(!seen.contains(x-1)) {
+            
+            if(!seen.contains(n-1)) {
+                int x = n;
+                int curr = 1;
                 while(seen.contains(++x)) {
                     curr++;
                 }
+                max = Math.max(max, curr);
             } 
 
             
-            max = Math.max(max, curr);
+            
         }
         
         
