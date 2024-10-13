@@ -16,7 +16,7 @@ class Solution {
                 minHeap.add(new int[]{nums.get(curr[2]).get(curr[1]+1), curr[1]+1, curr[2]});
             }
         }
-        int[] count = new int[nums.size()];
+        Map<Integer, Integer> count = new HashMap<>();
         
         int start = 0, min = Integer.MAX_VALUE;
         int  startAns=0, endAns = 0;
@@ -25,14 +25,19 @@ class Solution {
         
         
         for(int[] arr: sorted) {
-            count[arr[2]]++;
-            while(isSolution(count)) {
+            count.put(arr[2], count.getOrDefault(arr[2], 0)+1);
+            while(count.size() == nums.size()) {
                 if(sorted.get(index)[0]-sorted.get(start)[0]<min) {
                     startAns = start;
                     endAns = index;
                     min = sorted.get(index)[0]-sorted.get(start)[0];
                 }
-                count[sorted.get(start++)[2]]--;
+                int curr = count.get(sorted.get(start++)[2]);
+                if(curr == 1) {
+                    count.remove(sorted.get(start-1)[2]);
+                } else {
+                    count.put(sorted.get(start-1)[2], curr-1);
+                }
             }
             index++;
 
@@ -41,11 +46,4 @@ class Solution {
         return new int[]{sorted.get(startAns)[0], sorted.get(endAns)[0]};
     }
     
-    boolean isSolution(int[] arr) {
-        for(int n: arr) {
-            if(n<=0) return false;
-        }
-        
-        return true;
-    }
 }
