@@ -3,46 +3,50 @@ class Solution {
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a,b) -> a[0] - b[0]);
         
         int index = 0;
+        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE, prev=0;
+
+
         for(List<Integer> list: nums) {
             minHeap.add(new int[]{list.get(0), 0, index++});
+            min = Math.min(min, list.get(0));
+            max = Math.max(max, list.get(0));
         }
-                
-        int start = 0, min = Integer.MAX_VALUE;
-        int  startAns=0, endAns = nums.size()-1;
-        index = 0;
         
-        Map<Integer, Integer> count = new HashMap<>();
-
-
-        List<int[]> sorted = new ArrayList<>();
+        int minDiff = max-min;
+        int prevMax = max;
+        
+                        
         while(!minHeap.isEmpty()) {
             int[] curr = minHeap.poll();
-            count.put(curr[2], count.getOrDefault(curr[2], 0)+1);
-            sorted.add(curr);
-            while(count.size() == nums.size()) {
-                if(sorted.get(index)[0]-sorted.get(start)[0]<min) {
-                    startAns = sorted.get(start)[0];
-                    endAns = sorted.get(index)[0];
-                    min = sorted.get(index)[0]-sorted.get(start)[0];
+            int currDiff = prevMax - curr[0];
+//                        System.out.println(curr[0]+" "+ prevMax+" "+ max +" "+ min +" "+minDiff+" "+currDiff);
+
+            
+            if(curr[1] == nums.get(curr[2]).size()-1) {
+                if(minDiff>currDiff) {
+                    min = curr[0];
+                    max = prevMax;
+                   
                 }
-                int current = count.get(sorted.get(start++)[2]);
-                if(current == 1) {
-                    count.remove(sorted.get(start-1)[2]);
-                } else {
-                    count.put(sorted.get(start-1)[2], current-1);
-                }
+                break;
+            } 
+            
+            if(minDiff>currDiff) {
+                min = curr[0];
+                max = prevMax;
+                 minDiff = currDiff;
             }
-            index++;
             
             
-            if(curr[1] < nums.get(curr[2]).size()-1) {
-                minHeap.add(new int[]{nums.get(curr[2]).get(curr[1]+1), curr[1]+1, curr[2]});
-            }
+            int newNum = nums.get(curr[2]).get(curr[1]+1);
+            prevMax = Math.max(prevMax, newNum);
+            minHeap.add(new int[]{newNum, curr[1]+1, curr[2]});
+            
         }
         
         
         
-        return new int[]{startAns, endAns};
+        return new int[]{min, max};
     }
     
 }
