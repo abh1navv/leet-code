@@ -15,9 +15,7 @@ class Solution {
         int count = 0;
 
         
-        if(index1 == word1.length() && index2 == word2.length()) {
-            count = 0;
-        } else if(index1 == word1.length()) {
+        if(index1 == word1.length()) {
             count = word2.length()-index2;
         } else if(index2 == word2.length()) {
             count = word1.length()-index1;
