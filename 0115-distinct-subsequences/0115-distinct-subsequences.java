@@ -25,7 +25,9 @@ class Solution {
         int count = 0;
         
         for(int i=index1; i<s.length(); i++) {
-            if(s.charAt(i) == t.charAt(index2) && s.length()-i >= t.length()-index2) {
+            if(s.length()-i < t.length()-index2) break;
+            
+            if(s.charAt(i) == t.charAt(index2)) { 
                 count += count(i+1, index2+1, s, t);
             }
         }
