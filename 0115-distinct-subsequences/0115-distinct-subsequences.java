@@ -16,9 +16,7 @@ class Solution {
             return 1;
         } else if(index1 == s.length()) {
             return 0;
-        } else if(s.length() -index1 < t.length()-index2) {
-            return 0;
-        }
+        } 
         
         if(cache[index1][index2] != -1) {
             return cache[index1][index2];
@@ -27,7 +25,7 @@ class Solution {
         int count = 0;
         
         for(int i=index1; i<s.length(); i++) {
-            if(s.charAt(i) == t.charAt(index2)) {
+            if(s.charAt(i) == t.charAt(index2) && s.length()-i >= t.length()-index2) {
                 count += count(i+1, index2+1, s, t);
             }
         }
