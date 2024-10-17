@@ -12,16 +12,16 @@ class Solution {
             return cache.get(key);
         }
         
-        if(index1 == word1.length() && index2 == word2.length()) {
-            return 0;
-        } else if(index1 == word1.length()) {
-            return word2.length()-index2;
-        } else if(index2 == word2.length()) {
-            return word1.length()-index1;
-        }
-        
         int count = 0;
-        if(word1.charAt(index1) == word2.charAt(index2)) {
+
+        
+        if(index1 == word1.length() && index2 == word2.length()) {
+            count = 0;
+        } else if(index1 == word1.length()) {
+            count = word2.length()-index2;
+        } else if(index2 == word2.length()) {
+            count = word1.length()-index1;
+        } else if(word1.charAt(index1) == word2.charAt(index2)) {
             count = count(index1+1, index2+1, word1, word2);
         } else {
             count = 1 + Math.min(count(index1, index2+1, word1, word2), Math.min(count(index1+1, index2, word1, word2), count(index1+1, index2+1, word1, word2)));
