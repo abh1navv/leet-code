@@ -22,8 +22,6 @@ public class Solution {
         }
         
         if(fast != slow) return null;
-        //System.out.println(slow.val);
-        //System.out.println(fast.val);
         
         slow = head;
         
