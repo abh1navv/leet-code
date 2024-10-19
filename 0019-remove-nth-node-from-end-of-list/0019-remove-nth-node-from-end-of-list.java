@@ -20,7 +20,7 @@ class Solution {
         int count = len-n;
         
         if(count < 0) return null;
-        else if(count==0 && len==n) return head.next;
+        else if(len==n) return head.next;
         
         temp = head;
         count--;
