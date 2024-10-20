@@ -3,10 +3,12 @@ class Solution {
         Set<Integer> seen = new HashSet<>();
         seen.add(1);
         
+        int d=0,sum=0;
+        
         while(seen.add(n)) {
-            int sum=0;
+            sum=0;
             while(n!=0) {
-                int d = n%10;
+                d = n%10;
                 sum+=d*d;
                 n/=10;
             }
