@@ -1,16 +1,14 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        boolean[] canJump = new boolean[nums.length];
-        canJump[nums.length-1] = true;
+        nums[nums.length-1] = -1;
         for(int i=nums.length-2; i>=0; i--) {
             for(int j=i; j<=Math.min(i+nums[i], nums.length-1) ; j++) {
-                if(canJump[j]) {
-                    canJump[i] = true;
-                    break;
+                if(nums[j] == -1) {
+                    nums[i] = -1;
                 }
             }
         }
         
-        return canJump[0];
+        return nums[0] == -1;
     }
 }
