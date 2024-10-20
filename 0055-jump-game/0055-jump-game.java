@@ -4,7 +4,10 @@ class Solution {
         canJump[nums.length-1] = true;
         for(int i=nums.length-2; i>=0; i--) {
             for(int j=i; j<=Math.min(i+nums[i], nums.length-1) ; j++) {
-                if(canJump[j]) canJump[i] = true;
+                if(canJump[j]) {
+                    canJump[i] = true;
+                    break;
+                }
             }
         }
         
