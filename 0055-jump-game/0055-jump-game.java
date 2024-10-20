@@ -1,14 +1,13 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        nums[nums.length-1] = -1;
-        for(int i=nums.length-2; i>=0; i--) {
-            for(int j=i; j<=Math.min(i+nums[i], nums.length-1) ; j++) {
-                if(nums[j] == -1) {
-                    nums[i] = -1;
-                }
-            }
+        int maxDist =0;
+        for(int i=0; i<nums.length-1; i++) {
+            if(i>maxDist) return false;
+            if(maxDist >= nums.length-1) return true;
+            
+            maxDist = Math.max(maxDist, i+nums[i]);
         }
         
-        return nums[0] == -1;
+        return maxDist >= nums.length-1;
     }
 }
