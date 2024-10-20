@@ -4,19 +4,16 @@ class Solution {
         
         while(n != 1) {
             if(!seen.add(n)) return false;
-            n = updatedN(n);
+            int sum=0;
+            while(n!=0) {
+                int d = n%10;
+                sum+=d*d;
+                n/=10;
+            }
+            n = sum;
         }
         
         return true;
     }
     
-    int updatedN(int n) {
-        int sum=0;
-        while(n!=0) {
-            int d = n%10;
-            sum+=d*d;
-            n/=10;
-        }
-        return sum;
-    }
 }
