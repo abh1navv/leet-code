@@ -1,9 +1,9 @@
 class Solution {
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();
+        seen.add(1);
         
-        while(n != 1) {
-            if(!seen.add(n)) return false;
+        while(seen.add(n)) {
             int sum=0;
             while(n!=0) {
                 int d = n%10;
@@ -13,7 +13,7 @@ class Solution {
             n = sum;
         }
         
-        return true;
+        return n==1;
     }
     
 }
